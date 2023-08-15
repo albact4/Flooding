@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Flooding Simulator</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+    <!-- Link to CSS file -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
+
+    <!-- Leaflet CSS and JavaScript files -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.js"></script>
+
+</head>
+
+<body>
+    <!-- Top Nav Menu -->
+    <div class="topnav" id="myTopnav">
+        <a href="https://www.wvstateu.edu/" class="logo">
+            <img src="logo1.png" alt="Logo">
+        </a>
+        <a href="index.html" class="active">Home</a>
+      <!-- <a href="qgis2web_2023_06_06-12_35_15_931878/map.html">Map</a> -->
+      <a href="GoogleMaps.html">Simulations</a>
+      <a href="about.html">FAQs</a>
+      <a href="contact.html">Contact</a>
+  </div>
+    <div class="a">
+        <img src="images/Title.png" alt="Title Image"  class="title"> 
+        <!-- Learn More Button -->
+        <button class="learn-more">
+            <span class="circle" aria-hidden="true">
+            <span class="icon arrow"></span>
+            </span>
+            <span class="button-text">Learn More</span>
+          </button>
+    </div> 
+
+    <div class="top">
+        <!-- Card Container -->
+        <div class="card-container">
+            <!-- Simulation Card -->
+            <div class="card">
+                <img src="images/FS.png" alt="Card Image"  class="card__image">              
+                <div class="card__content">
+                    <p class="card__title">Flooding Simulations</p>
+                    <p class="card__description"></p>
+                    <button class="card__button" id="redirectButton">View Simulations</button>
+                    <button class="card__button secondary" id="explanationButton">Explanation of Simulations</button>
+                </div>
+            </div>
+            <!-- Hazardous Zones Card -->
+            <div class="card">
+                <img src="images/HZ.png" alt="Card Image" class="card__image">                      
+                <div class="card__content">
+                    <p class="card__title">Hazardous Zones</p>
+                    <p class="card__description"></p>
+                    <button class="card__button" id="redirectButton1">View Hazardous Zones</button>
+                    <button class="card__button secondary" id="explanationButton1">Explanation of Simulations</button>
+                </div>
+            </div>
+        </div>
+        
+         <!-- Scrollable list -->
+         <!-- 
+         <label for="gifSelector">Select a Simulation:</label>
+         <select id="gifSelector">
+             <option value="gif1">Discharge</option>
+             <option value="gif2">Effect of Raining/Drying</option>
+             <option value="gif3">GIF 3</option>
+         </select> -->
+         
+         <!-- Display Button -->
+         <!-- 
+         <button id="displayButton">Display</button>
+ 
+          GIF images 
+         <div class="gif-container">
+             <img id="gif1" class="gif" src="gifs/gif1.gif" alt="Discharge">
+             <img id="gif2" class="gif" src="gifs/gif2.gif" alt="Effect of Raining/Drying">
+             <img id="gif3" class="gif" src="gifs/gif3.gif" alt="GIF 3">
+         </div> 
+            
+        <h1>More Info</h1> -->
+
+    </div>
+        
+   
+    <div class="bottom">
+        <img src="logo1.png" alt="logob" class="logo">
+    </div>
+
+    <!-- Link to JavaScript file -->
+    <script src="script.js"></script>
+
+
+</body>
+</html>
+
+
+
+<!-- MY_API_KEY = AIzaSyBPMXj1GDdfRvVzbYCTcKSVBIujzERDJns-->

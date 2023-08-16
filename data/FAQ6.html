@@ -1,0 +1,624 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:"Arial";   
+	src: local("Arial");
+}
+@font-face
+	{font-family:Arial;
+        src: local("Arial");
+    }
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:8.0pt;
+	margin-left:0in;
+	line-height:106%;
+	font-size:11.0pt;
+	font-family:"Arial",Arial;}
+a:link, span.MsoHyperlink
+	{color:#0563C1;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:#954F72;
+	text-decoration:underline;}
+p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:8.0pt;
+	margin-left:.5in;
+	line-height:106%;
+	font-size:11.0pt;
+	font-family:"Arial",Arial;}
+p.msonormal0, li.msonormal0, div.msonormal0
+	{
+	margin-right:0in;
+	margin-left:0in;
+	font-size:12.0pt;
+	font-family:"Arial",Arial;}
+p.msolistparagraphcxspfirst, li.msolistparagraphcxspfirst, div.msolistparagraphcxspfirst
+	{
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	line-height:106%;
+	font-size:11.0pt;
+	font-family:"Arial",Arial;}
+p.msolistparagraphcxspmiddle, li.msolistparagraphcxspmiddle, div.msolistparagraphcxspmiddle
+	{
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	line-height:106%;
+	font-size:11.0pt;
+	font-family:"Arial",Arial;}
+p.msolistparagraphcxsplast, li.msolistparagraphcxsplast, div.msolistparagraphcxsplast
+	{
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:8.0pt;
+	margin-left:.5in;
+	line-height:106%;
+	font-size:11.0pt;
+	font-family:"Arial",Arial;}
+p.msochpdefault, li.msochpdefault, div.msochpdefault
+	{
+	margin-right:0in;
+	margin-left:0in;
+	font-size:12.0pt;
+	font-family:"Arial",Arial;}
+p.msopapdefault, li.msopapdefault, div.msopapdefault
+	{
+	margin-right:0in;
+	margin-bottom:8.0pt;
+	margin-left:0in;
+	line-height:106%;
+	font-size:12.0pt;
+	font-family:"Arial",Arial;}
+.MsoChpDefault
+	{font-size:10.0pt;}
+.MsoPapDefault
+	{margin-bottom:8.0pt;
+	line-height:106%;}
+@page WordSection1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.0in 1.0in 1.0in;}
+
+-->
+</style>
+
+</head>
+
+<body lang=ES-MX link="#0563C1" vlink="#954F72">
+
+
+
+<p class=MsoNormal><b><span lang=EN-US style='font-family:"Arial",sans-serif;
+color:#222222;background:white'>- How did we get to the flash flooding
+simulations?</span></b></p>
+
+<p class=MsoNormal><b><span lang=EN-US style='font-family:"Arial",sans-serif;
+color:#222222;background:white'>&nbsp;</span></b></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Arial",sans-serif;
+color:#222222;background:white'>Overall data flow for flash flooding
+simulations</span></p>
+
+<p class=MsoNormal><span style='font-family:"Arial",sans-serif;color:#222222;
+background:white'><img width=510 height=622 src="image001.png"></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Arial",sans-serif;
+color:#222222;background:white'>&nbsp;</span></p>
+
+<p class=MsoNormal><b><span lang=EN-US style='font-family:"Arial",sans-serif;
+color:#222222;background:white'>- How did we define the intensity of the rain?</span></b></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Arial",sans-serif;
+color:#222222;background:white'>Data for the Kanawha River-Charleston area was
+retrieved from the NOAA NCDC (https://www.ncei.noaa.gov/cdo-web/), focusing on the
+Precipitation Hourly of the weather station located in Charleston, WV. Period
+of record: Aug/1/1996 - Jan/1/2014</span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Arial",sans-serif;
+color:#222222;background:white'>Data was curated and analyzed in the HEC-SSP
+fitting the maximum annual rainfall events in the Probability Density Function
+(PDF) Pearson III by means of the Maximum Likelihood Estimators (MLE).</span></p>
+
+<p class=MsoNormal><span style='font-family:"Arial",sans-serif;color:#222222;
+background:white'><img width=624 height=460 src="image002.png"></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Arial",sans-serif;
+color:#222222;background:white'>A maximum rainfall for a 10-year expected event
+was 38.68mm/h. The rain event followed a bell curve over a period of 3h. The
+duration of 3h is empirically defined, however, it is suggested between 1h and
+3h for flash flooding events (Fowler et al., 2021). The rainfall development
+over time adjusted to a bell curve provided information of the rainfall impact
+under increasing, maximum and decreasing rainfall causing a total of 225 mm.</span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Arial",sans-serif;
+color:#222222;background:white'>Fowler, H. J., Lenderink, G., Prein, A. F.,
+Westra, S., Allan, R. Ban, N., Barbero, R., Berg, P., Blenkinsop, S., Do, H.
+X., Guerreiro, S. B., Haerter, J. O., Kendon, E., Lewis, E., Schaer, C.,
+Sharma, A., Villarini, G., Wasko, C. and Zhang, X. (2021). Anthropogenic
+intensification of short-</span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Arial",sans-serif;
+color:#222222;background:white'>duration rainfall extremes. Nature Reviews
+Earth &amp; Environment, 2. pp. 107-122. ISSN 2662-138X doi: <a
+href="https://doi.org/10.1038/s43017-020-00128-6">https://doi.org/10.1038/s43017-020-00128-6</a></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Arial",sans-serif;
+color:#222222;background:white'>&nbsp;</span><span style='font-family:"Arial",sans-serif'><img
+border=0 width=490 height=337 src="image003.png"></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Arial",sans-serif;
+color:#222222;background:white'>&nbsp;</span></p>
+
+<p class=MsoNormal><b><span lang=EN-US style='font-family:"Arial",sans-serif;
+color:#222222;background:white'>- How did we retrieve the Digital Elevation
+Model (DEM)?</span></b></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Arial",sans-serif;
+color:#222222;background:white'>Raster files of the DEM were retrieved from the
+WV Elevation and LIDAR Download Tool (</span><span style='font-family:"Arial",sans-serif'><a
+href="http://data.wvgis.wvu.edu/elevation/"><span lang=EN-US style='background:
+white'>http://data.wvgis.wvu.edu/elevation/</span></a></span><span lang=EN-US
+style='font-family:"Arial",sans-serif;color:#222222;background:white'>), using
+the more recent files. </span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Arial",sans-serif;
+color:#222222'><br>
+<b><span style='background:white'>- How did we incorporate Manning's
+coefficient?</span></b></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Arial",sans-serif;
+color:#222222;background:white'>A raster file of the land cover was retrieved from
+the Multi-Resolution Land Characteristics Consortium (MRLC, </span><span
+style='font-family:"Arial",sans-serif'><a href="https://www.mrlc.gov/"><span
+lang=EN-US style='background:white'>https://www.mrlc.gov/</span></a></span><span
+lang=EN-US style='font-family:"Arial",sans-serif;color:#222222;background:white'>)
+for the Kanawha River-Charleston, WV area. The raster file corresponded to the
+2019 CONUS Land Cover. Then, QGIS was used to convert the raster file to a
+shapefile indicating the Manning Coefficient by following the table below.</span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Arial",sans-serif;
+color:#222222;background:white'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Arial",sans-serif;
+color:#222222'>Table 1. Manning coefficients for the categories of land cover
+(Mattocks and Forbes, 2008).</span></p>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0
+ style='border-collapse:collapse'>
+ <tr>
+  <td valign=top style='border:none;border-bottom:solid #7F7F7F 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><b><span lang=EN-US style='font-family:"Arial",sans-serif;
+  color:#222222;text-transform:uppercase'>NLCD Number</span></b></p>
+  </td>
+  <td valign=top style='border:none;border-bottom:solid #7F7F7F 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><b><span lang=EN-US style='font-family:"Arial",sans-serif;
+  color:#222222;text-transform:uppercase'>Land Cover</span></b></p>
+  </td>
+  <td valign=top style='border:none;border-bottom:solid #7F7F7F 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><b><span lang=EN-US style='font-family:"Arial",sans-serif;
+  color:#222222;text-transform:uppercase'>Manning Coefficient</span></b></p>
+  </td>
+ </tr>
+ <tr>
+  <td valign=top style='border:none;border-right:solid #7F7F7F 1.0pt;
+  background:#F2F2F2;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><b><span lang=EN-US style='font-family:"Arial",sans-serif;
+  color:#222222;text-transform:uppercase'>11</span></b></p>
+  </td>
+  <td valign=top style='background:#F2F2F2;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US style='font-family:"Arial",sans-serif;
+  color:#222222'>Open water</span></p>
+  </td>
+  <td valign=top style='background:#F2F2F2;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US style='font-family:"Arial",sans-serif;
+  color:#222222'>0.020</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td valign=top style='border:none;border-right:solid #7F7F7F 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><b><span lang=EN-US style='font-family:"Arial",sans-serif;
+  color:#222222;text-transform:uppercase'>12</span></b></p>
+  </td>
+  <td valign=top style='padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US style='font-family:"Arial",sans-serif;
+  color:#222222'>Perennial ice/snow</span></p>
+  </td>
+  <td valign=top style='padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US style='font-family:"Arial",sans-serif;
+  color:#222222'>0.010</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td valign=top style='border:none;border-right:solid #7F7F7F 1.0pt;
+  background:#F2F2F2;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><b><span lang=EN-US style='font-family:"Arial",sans-serif;
+  color:#222222;text-transform:uppercase'>21</span></b></p>
+  </td>
+  <td valign=top style='background:#F2F2F2;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US style='font-family:"Arial",sans-serif;
+  color:#222222'>Developed open space</span></p>
+  </td>
+  <td valign=top style='background:#F2F2F2;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US style='font-family:"Arial",sans-serif;
+  color:#222222'>0.020</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td valign=top style='border:none;border-right:solid #7F7F7F 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><b><span lang=EN-US style='font-family:"Arial",sans-serif;
+  color:#222222;text-transform:uppercase'>22</span></b></p>
+  </td>
+  <td valign=top style='padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US style='font-family:"Arial",sans-serif;
+  color:#222222'>Developed low intensity</span></p>
+  </td>
+  <td valign=top style='padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US style='font-family:"Arial",sans-serif;
+  color:#222222'>0.050</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td valign=top style='border:none;border-right:solid #7F7F7F 1.0pt;
+  background:#F2F2F2;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><b><span lang=EN-US style='font-family:"Arial",sans-serif;
+  color:#222222;text-transform:uppercase'>23</span></b></p>
+  </td>
+  <td valign=top style='background:#F2F2F2;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US style='font-family:"Arial",sans-serif;
+  color:#222222'>Developed medium intensity</span></p>
+  </td>
+  <td valign=top style='background:#F2F2F2;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US style='font-family:"Arial",sans-serif;
+  color:#222222'>0.100</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td valign=top style='border:none;border-right:solid #7F7F7F 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><b><span lang=EN-US style='font-family:"Arial",sans-serif;
+  color:#222222;text-transform:uppercase'>24</span></b></p>
+  </td>
+  <td valign=top style='padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US style='font-family:"Arial",sans-serif;
+  color:#222222'>Developed high intensity</span></p>
+  </td>
+  <td valign=top style='padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US style='font-family:"Arial",sans-serif;
+  color:#222222'>0.130</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td valign=top style='border:none;border-right:solid #7F7F7F 1.0pt;
+  background:#F2F2F2;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><b><span lang=EN-US style='font-family:"Arial",sans-serif;
+  color:#222222;text-transform:uppercase'>31</span></b></p>
+  </td>
+  <td valign=top style='background:#F2F2F2;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US style='font-family:"Arial",sans-serif;
+  color:#222222'>Barren land (rock/sand/clay)</span></p>
+  </td>
+  <td valign=top style='background:#F2F2F2;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US style='font-family:"Arial",sans-serif;
+  color:#222222'>0.090</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td valign=top style='border:none;border-right:solid #7F7F7F 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><b><span lang=EN-US style='font-family:"Arial",sans-serif;
+  color:#222222;text-transform:uppercase'>41</span></b></p>
+  </td>
+  <td valign=top style='padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US style='font-family:"Arial",sans-serif;
+  color:#222222'>Deciduous forest</span></p>
+  </td>
+  <td valign=top style='padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US style='font-family:"Arial",sans-serif;
+  color:#222222'>0.100</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td valign=top style='border:none;border-right:solid #7F7F7F 1.0pt;
+  background:#F2F2F2;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><b><span lang=EN-US style='font-family:"Arial",sans-serif;
+  color:#222222;text-transform:uppercase'>42</span></b></p>
+  </td>
+  <td valign=top style='background:#F2F2F2;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US style='font-family:"Arial",sans-serif;
+  color:#222222'>Evergreen forest</span></p>
+  </td>
+  <td valign=top style='background:#F2F2F2;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US style='font-family:"Arial",sans-serif;
+  color:#222222'>0.110</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td valign=top style='border:none;border-right:solid #7F7F7F 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><b><span lang=EN-US style='font-family:"Arial",sans-serif;
+  color:#222222;text-transform:uppercase'>43</span></b></p>
+  </td>
+  <td valign=top style='padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US style='font-family:"Arial",sans-serif;
+  color:#222222'>Mixed forest</span></p>
+  </td>
+  <td valign=top style='padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US style='font-family:"Arial",sans-serif;
+  color:#222222'>0.100</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td valign=top style='border:none;border-right:solid #7F7F7F 1.0pt;
+  background:#F2F2F2;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><b><span lang=EN-US style='font-family:"Arial",sans-serif;
+  color:#222222;text-transform:uppercase'>51</span></b></p>
+  </td>
+  <td valign=top style='background:#F2F2F2;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US style='font-family:"Arial",sans-serif;
+  color:#222222'>Dwarf scrub</span></p>
+  </td>
+  <td valign=top style='background:#F2F2F2;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US style='font-family:"Arial",sans-serif;
+  color:#222222'>0.040</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td valign=top style='border:none;border-right:solid #7F7F7F 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><b><span lang=EN-US style='font-family:"Arial",sans-serif;
+  color:#222222;text-transform:uppercase'>52</span></b></p>
+  </td>
+  <td valign=top style='padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US style='font-family:"Arial",sans-serif;
+  color:#222222'>Shrub/scrub</span></p>
+  </td>
+  <td valign=top style='padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US style='font-family:"Arial",sans-serif;
+  color:#222222'>0.050</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td valign=top style='border:none;border-right:solid #7F7F7F 1.0pt;
+  background:#F2F2F2;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><b><span lang=EN-US style='font-family:"Arial",sans-serif;
+  color:#222222;text-transform:uppercase'>71</span></b></p>
+  </td>
+  <td valign=top style='background:#F2F2F2;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US style='font-family:"Arial",sans-serif;
+  color:#222222'>Grassland/herbaceous</span></p>
+  </td>
+  <td valign=top style='background:#F2F2F2;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US style='font-family:"Arial",sans-serif;
+  color:#222222'>0.034</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td valign=top style='border:none;border-right:solid #7F7F7F 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><b><span lang=EN-US style='font-family:"Arial",sans-serif;
+  color:#222222;text-transform:uppercase'>72</span></b></p>
+  </td>
+  <td valign=top style='padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US style='font-family:"Arial",sans-serif;
+  color:#222222'>Sedge/herbaceous</span></p>
+  </td>
+  <td valign=top style='padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US style='font-family:"Arial",sans-serif;
+  color:#222222'>0.030</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td valign=top style='border:none;border-right:solid #7F7F7F 1.0pt;
+  background:#F2F2F2;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><b><span lang=EN-US style='font-family:"Arial",sans-serif;
+  color:#222222;text-transform:uppercase'>81</span></b></p>
+  </td>
+  <td valign=top style='background:#F2F2F2;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US style='font-family:"Arial",sans-serif;
+  color:#222222'>Pasture/hay</span></p>
+  </td>
+  <td valign=top style='background:#F2F2F2;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US style='font-family:"Arial",sans-serif;
+  color:#222222'>0.033</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td valign=top style='border:none;border-right:solid #7F7F7F 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><b><span lang=EN-US style='font-family:"Arial",sans-serif;
+  color:#222222;text-transform:uppercase'>82</span></b></p>
+  </td>
+  <td valign=top style='padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US style='font-family:"Arial",sans-serif;
+  color:#222222'>Cultivated crops</span></p>
+  </td>
+  <td valign=top style='padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US style='font-family:"Arial",sans-serif;
+  color:#222222'>0.037</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td valign=top style='border:none;border-right:solid #7F7F7F 1.0pt;
+  background:#F2F2F2;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><b><span lang=EN-US style='font-family:"Arial",sans-serif;
+  color:#222222;text-transform:uppercase'>90</span></b></p>
+  </td>
+  <td valign=top style='background:#F2F2F2;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US style='font-family:"Arial",sans-serif;
+  color:#222222'>Woody wetlands</span></p>
+  </td>
+  <td valign=top style='background:#F2F2F2;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US style='font-family:"Arial",sans-serif;
+  color:#222222'>0.140</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td valign=top style='border:none;border-right:solid #7F7F7F 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><b><span lang=EN-US style='font-family:"Arial",sans-serif;
+  color:#222222;text-transform:uppercase'>91</span></b></p>
+  </td>
+  <td valign=top style='padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US style='font-family:"Arial",sans-serif;
+  color:#222222'>Palustrine forested wetland</span></p>
+  </td>
+  <td valign=top style='padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US style='font-family:"Arial",sans-serif;
+  color:#222222'>0.100</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td valign=top style='border:none;border-right:solid #7F7F7F 1.0pt;
+  background:#F2F2F2;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><b><span lang=EN-US style='font-family:"Arial",sans-serif;
+  color:#222222;text-transform:uppercase'>92</span></b></p>
+  </td>
+  <td valign=top style='background:#F2F2F2;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US style='font-family:"Arial",sans-serif;
+  color:#222222'>Palustrine scrub/shrub wetland</span></p>
+  </td>
+  <td valign=top style='background:#F2F2F2;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US style='font-family:"Arial",sans-serif;
+  color:#222222'>0.048</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td valign=top style='border:none;border-right:solid #7F7F7F 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><b><span lang=EN-US style='font-family:"Arial",sans-serif;
+  color:#222222;text-transform:uppercase'>95</span></b></p>
+  </td>
+  <td valign=top style='padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US style='font-family:"Arial",sans-serif;
+  color:#222222'>Emergent herbaceous wetlands</span></p>
+  </td>
+  <td valign=top style='padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US style='font-family:"Arial",sans-serif;
+  color:#222222'>0.045</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Arial",sans-serif;
+color:#222222'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Arial",sans-serif;
+color:#222222'>Mattocks, C., and C. Forbes, 2008: A real-time, event-triggered
+storm surge forecasting system for the state of North Carolina. Ocean Modell.,
+25, 95-119.</span></p>
+
+<p class=MsoNormal><b><span lang=EN-US style='font-family:"Arial",sans-serif;
+color:#222222'>&nbsp;</span></b></p>
+
+<p class=MsoNormal><b><span lang=EN-US style='font-family:"Arial",sans-serif;
+color:#222222;background:white'>- How did we define the hazard intensity map?</span></b></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Arial",sans-serif;
+color:#222222;background:white'>The Swiss method is a combination of the
+maximum water depth and the product of the water depth and velocity (Somos et
+al., 2016).</span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Arial",sans-serif;
+color:#222222;background:white'>Somos-Valenzuela, M. A., Chisolm, R. E., Rivas,
+D. S., Portocarrero, C., and McKinney, D. C.: Modeling a glacial lake outburst
+flood process chain: the case of Lake Palcacocha and Huaraz, Peru, Hydrol.
+Earth Syst. Sci., 20, 2519-2543, https://doi.org/10.5194/hess-20-2519-2016,
+2016.</span></p>
+
+<p class=MsoNormal><b><span lang=EN-US style='font-family:"Arial",sans-serif;
+color:#222222'><br>
+<span style='background:white'>- Any extra information you believe might be
+helpful?</span></span></b></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Arial",sans-serif;
+color:#222222;background:white'>Infiltration was not considered to simplify
+simulations and challenging methods to identify proper settings. Additionally,
+flash flooding is happening in a short period of time, then, infiltration may
+become marginal; this assumption is valid for soils with minimum content of
+sand, which is our case (https://websoilsurvey.nrcs.usda.gov/app/). </span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Arial",sans-serif;
+color:#222222;background:white'>Evapotranspiration was not included in these
+simulations since it is a marginal effect during a 3h-period of the rainfall.</span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Arial",sans-serif;
+color:#222222;background:white'>Raster files used in these simulations were not
+edited so infrastructure such as culverts, bridges and other special
+constructions draining water were not considered in these simulations. </span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Arial",sans-serif;
+color:#222222'>-</span><span lang=EN-US style='font-size:7.0pt;line-height:
+106%;font-family:"Times New Roman",serif;color:#222222'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><b><span lang=EN-US style='font-family:"Arial",sans-serif;color:#222222;
+background:white'>What were the materials and methods?</span></b></p>
+
+<p class=MsoNormal><b><span lang=EN-US style='font-family:"Arial",sans-serif;
+color:#222222;background:white'>&nbsp;</span></b></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Arial",sans-serif;
+color:#222222;background:white'>The areas of interest were defined as a
+draining area that contributes to the Kanawha River, WV by means of a polygon
+determined in </span><span style='font-family:"Arial",sans-serif'><a
+href="https://www.epa.gov/waterdata/waters-geoviewer"><span lang=EN-US
+style='color:#222222;text-decoration:none'>https://www.epa.gov/waterdata/waters-geoviewer</span></a></span><span
+lang=EN-US style='font-family:"Arial",sans-serif;color:#222222;background:white'>.
+Such polygon was a GEOJSON file used in QGIS. Using the RiverFlow2D plugin from
+Hydronia (https://www.hydronia.com/riverflow2d) the simulation needed the
+following information: 1) Raster file of the topography or DEM.&nbsp; 2) The
+shapefile determining the Manning coefficient which was determined from the
+raster file of the land cover after a conversion to a shapefile with the
+Manning coefficient as an attribute. 3) The precipitation regime described by
+the bell curve, and 4) The outflow which was defined manually in the lower zone
+of the area of interest. </span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Arial",sans-serif;
+color:#222222;background:white'>First, the RiverFlow2D project was created with
+a coordinate reference system EPSG 32617.&nbsp; Second, a triangular mesh was
+generated with 20m of the element size resolution. Third, the files were
+exported to RiverFlow2D engine. Fourth, settings for the simulation were as
+follows: a) simulation time 3h, b) output interval 0.1h, c) Courant number
+(CFL) equal to 1, d) the rainfall/evaporation component was activated, e) with
+output maximum and output hazard files and f) dry bed initial conditions.
+Fourth, it was used the RF2D Animation to generate the velocity field
+animation. Fifth, it was used the Hazard Intensity Maps in the Results vs Time
+to choose the Swiss Method for Water Flooding in order to generate a shapefile
+with the three categories (low, medium and high
+hazard zone). </span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Arial",sans-serif;
+color:#222222;background:white'>CREDITS</span></p>
+
+<p class=MsoNormal><b><span lang=EN-US>Yhocsan Uzzi Guevara Garcia</span></b><span
+lang=EN-US> (essyhocsan@gmail.com): Conceptualization, Methodology, Software,
+Data Curation</span></p>
+
+<p class=MsoNormal><b><span lang=EN-US>Fernando Rojano Aguilar</span></b><span
+lang=EN-US> (fernando.rojano@wvstateu.edu): Conceptualization, Methodology,
+Software, Data Curation, Editing &amp; Writing</span></p>
+
+</div>
+
+</body>
+
+</html>

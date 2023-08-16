@@ -42,9 +42,6 @@ learnMoreButton.addEventListener('click', () => {
   window.location.href = 'about.html';
 });
 
-
-
-
 // Get the buttons by their IDs
 const redirectButton = document.getElementById("redirectButton");
 const explanationButton = document.getElementById("explanationButton");

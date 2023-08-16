@@ -421,3 +421,33 @@ h2 {
 }
 
 
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  font-size: 14px;
+  background-color: rgb(51, 51, 51);
+}
+
+.buttons a {
+  background-color: rgb(51, 51, 51);
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+#locateUser {
+  background-color: rgb(51, 51, 51);
+  color: white;
+  border: none;
+  padding: 15px 25px;
+  cursor: pointer;
+ 
+}
+
+.h4 {
+  font-family: 'Open Sans', Arial, sans-serif;
+  background-color: #fffdfa;
+
+}

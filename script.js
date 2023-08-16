@@ -36,10 +36,13 @@ function toggleNav() {
 const learnMoreButton = document.querySelector('.learn-more');
 
 // Add click event listener to the button
+
 learnMoreButton.addEventListener('click', () => {
   // Redirect to the desired HTML file
   window.location.href = 'about.html';
 });
+
+
 
 
 // Get the buttons by their IDs
@@ -55,7 +58,7 @@ redirectButton.addEventListener("click", () => {
 });
 redirectButton1.addEventListener("click", () => {
   // Redirect to the desired page when the button is clicked
-  window.location.href = "GoogleMaps.html";
+  window.location.href = "hazard.html";
 });
 
 explanationButton.addEventListener("click", () => {

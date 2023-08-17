@@ -1,5 +1,5 @@
 #map {
-    height: 650px;
+    height: 72vh;
     width: 100%;
   }
   
@@ -20,26 +20,9 @@
 
 .right-map {
   flex: 1;
-  padding: 20px;
+  padding: 10px;
   background-color: #fefefe;
 }
-
-
-/*
-#gif-container {
-  display: flex;
-  justify-content: center; 
-  align-items: center;
-  height: 500px;
-  width: 700px;
-  background-size: cover;
-  background-position: center;
-  border: 2px solid #333333;
-  border-radius: 6px;
-  display: inline-block;
-  padding: 5px;
-  
-}*/
 
 #gif-container {
   background-image: url('images/Instructions.png');

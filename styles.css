@@ -5,6 +5,17 @@ body {
   padding: 0;
 }
 
+h1 {
+  font-family: 'Open Sans', Arial, sans-serif;
+  color: #333;
+  text-align: center;
+}
+
+h2 {
+  font-family: 'Open Sans', Arial, sans-serif;
+  color: #333;
+  text-align: center;
+}
 
 /*********************************************************************/
 /*          Top Navigation Menu                                      */
@@ -163,25 +174,21 @@ button {
 
 
 /*********************************************************************/
-/*          Learn More Button                                        */
+/*          Main Page                                                */
 /*********************************************************************/
-.a {
+/* Title & Learn More Button Container */
+.mainTitle {
   display: flex;
   background-color: #fffdfa;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  height: 75vh;
+  width: 100%;
 
 }
-/* Main Container */
-.top {
-  display: flex;
-  background-color: #fffdfa;
-  flex-direction: column;
-  padding: 8px;
-  margin: 10px;
-}
-/* Main Container */
+
+/* Bottom Logo Container */
 .bottom {
   display: flex;
   background-color: #333;
@@ -205,64 +212,20 @@ button {
   max-width: 100%; /* Added to ensure the image doesn't exceed the container's width */
 }
 
+
 /*********************************************************************/
-/*          Gifs and Map                                             */
+/*          Cards: Flooding & Hazard                                 */
 /*********************************************************************/
-.left-side {
-  flex: 8.5;
-  padding: 20px;
-}
-
-/* h1 - Titles: Flooding Simulator & My QGIS Cloud Map */
-h1 {
-  font-family: 'Open Sans', Arial, sans-serif;
-  color: #333;
-  text-align: center;
-}
-
-/* Label - Select a Simulation */
-label {
-  display: block;
-  margin-left: 20px;
-  margin-top: 20px;
-}
-
-/* Select - Scrollable menu */
-select {
-  width: 200px;
-  margin-left: 20px;
-  padding: 5px;
-}
-
-.gif-container {
+/* Two Cards Container */
+.cards {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 20px;
-  height: 400px
-}
-
-.gif {
-  display: none;
-  width: 600px;
-  height: auto;
+  background-color: #fffdfa;
+  flex-direction: column;
+  padding: 8px;
   margin: 10px;
 }
 
-
-
-h2 {
-  font-family: 'Open Sans', Arial, sans-serif;
-  color: #000000;
-  text-align: center;
-}
-
-
-
-/*********************************************************************/
-/*          Learn More Button                                        */
-/*********************************************************************/
-
+/* Each Card Container */
 .card-container {
   
   display: flex;
@@ -356,7 +319,9 @@ h2 {
 }
 
 
-
+/*********************************************************************/
+/*          Container used in hazard, contact & about                */
+/*********************************************************************/
 
 #container1{
   padding: 5px;
@@ -367,6 +332,10 @@ h2 {
 
 }
 
+
+/*********************************************************************/
+/*          Filling Container                                        */
+/*********************************************************************/
 #fill{
   padding: 25px;
   height: 450px;
@@ -377,6 +346,10 @@ h2 {
 
 }
 
+
+/*********************************************************************/
+/*         FAQs                                                      */
+/*********************************************************************/
 .faq {
   max-width: 900px;
   margin: 0 auto;
@@ -391,14 +364,6 @@ h2 {
   background-color: #e2e3e5;
   padding: 10px;
   cursor: pointer;
-}
-
-/* Initially hide the question content */
-.question-content {
-  display: flex;
-  /*flex-direction: column;
-  align-items: center;
-  justify-content: center;*/
 }
 
 #faqsimg {
@@ -420,6 +385,10 @@ h2 {
   justify-content: center;
 }
 
+
+/*********************************************************************/
+/*          Hazard Zones                                             */
+/*********************************************************************/
 
 .buttons {
   display: flex;
@@ -450,4 +419,31 @@ h2 {
   font-family: 'Open Sans', Arial, sans-serif;
   background-color: #fffdfa;
 
+}
+
+.info {
+  padding: 6px 8px;
+  font: 17px/30px 'Open Sans', Arial, sans-serif;
+  background: white;
+  background: rgba(255,255,255,0.8);
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 10px;
+}
+.info h4 {
+  margin: 0 0 15px;
+  color: #000000;
+}
+
+.legend {
+  line-height: 20px;
+  color: #000000;
+}
+
+.legend i {
+  width: 10px;
+  height: 10px;
+  float: left;
+  margin-right: 8px;
+  opacity: 0.7;
+  padding: 4px;
 }

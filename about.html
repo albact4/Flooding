@@ -1,184 +1,228 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Frequently Asked Questions</title>
+<head>
+  <title>Frequently Asked Questions</title>
 
-    <!-- Link to favicon image -->
-    <link rel="icon" type="image/x-icon" href="images\favicon.ico">
+  <!-- Link to favicon image -->
+  <link rel="icon" type="image/x-icon" href="images\favicon.ico">
+  
+  <!-- Link to CSS file -->
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
+  <style> /* styles.css */
+
     
-    <!-- Link to CSS file -->
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
-  </head>
 
 
-  <body>
-      <!-- Top Nav Menu -->
-      <div class="topnav" id="myTopnav">
-        <a href="https://www.wvstateu.edu/" class="logo">
-            <img src="images\logo1.png" alt="Logo">
-        </a>
-        <a href="index.html" class="active">Home</a>
-        <a href="GoogleMaps.html">Simulations</a>
-        <a href="hazard.html">Hazard Zones</a>
-        <a href="about.html">FAQs</a>
-        <a href="contact.html">Contact</a>
+    </style>
+</head>
+<body>
+    <!-- Top Nav Menu -->
+    <div class="topnav" id="myTopnav">
+      <a href="https://www.wvstateu.edu/" class="logo">
+          <img src="images\logo1.png" alt="Logo">
+      </a>
+      <a href="index.html" class="active">Home</a>
+      <a href="GoogleMaps.html">Simulations</a>
+      <a href="hazard.html">Hazard Zones</a>
+      <a href="about.html">FAQs</a>
+      <a href="contact.html">Contact</a>
 
-        
-        <i class="fa fa-bars"></i>
-        </a>
-    </div>
+      
+      <i class="fa fa-bars"></i>
+      </a>
+</div>
+    <div id="container1"> </div>
+    <h1>Frequently Asked Questions</h1>
 
-    <div class="container1">
-      <!-- Header -->
-      <h1>Frequently Asked Questions</h1>
-
-
-      <div class="faq">
-        <div class="question">
-          <div class="question-title">How did we get to the flooding simulations?</div>
-          <div class="question-content">
-            <img src="images/faqs1.png" alt="explanation img" id="faqsimg">
-            <p>Overall data flow for flash flooding simulations.</p>
-          </div>
-        </div>
-
-        <div class="question">
-          <div class="question-title">What were the materials and methods?</div>
-          <div class="question-content">
-            <p>The areas of interest were defined as a draining area that contributes to the Kanawha River, WV 
-              by means of a polygon determined in <a href="https://www.epa.gov/waterdata/waters-geoviewer" target="_blank">https://www.epa.gov/waterdata/waters-geoviewer</a>. 
-              Such polygon was a GEOJSON file used in QGIS. 
-              <br><br>Using the RiverFlow2D plugin from Hydronia ( <a href="https://www.hydronia.com/riverflow2d" target="_blank">https://www.hydronia.com/riverflow2d</a>) the simulation needed the following information: 
-              <br>&nbsp;&nbsp;&nbsp;&nbsp;1) Raster file of the topography or DEM.  
-              <br>&nbsp;&nbsp;&nbsp;&nbsp;2) The shapefile determining the Manning coefficient which was determined from the raster 
-              file of the land cover after a conversion to a shapefile with the Manning coefficient as an attribute. 
-              <br>&nbsp;&nbsp;&nbsp;&nbsp;3) The precipitation regime described by the bell curve, and 
-              <br>&nbsp;&nbsp;&nbsp;&nbsp;4) The outflow which was defined manually in the lower zone of the area of interest. 
-              <br><br>First, the RiverFlow2D project was created with a coordinate reference system EPSG 32617.  
-              <br><br>Second, a triangular mesh was generated with 20m of the element size resolution. 
-              <br><br>Third, the files were exported to RiverFlow2D engine. 
-              <br><br>  Fourth, settings for the simulation were as follows: 
-              <br>&nbsp;&nbsp;&nbsp;&nbsp;a) simulation time 3h, 
-              <br>&nbsp;&nbsp;&nbsp;&nbsp;b) output interval 0.1h, 
-              <br>&nbsp;&nbsp;&nbsp;&nbsp;c) Courant number (CFL) equal to 1, 
-              <br>&nbsp;&nbsp;&nbsp;&nbsp;d) the rainfall/evaporation component was activated, 
-              <br>&nbsp;&nbsp;&nbsp;&nbsp;e) with output maximum and output hazard files and 
-              <br>&nbsp;&nbsp;&nbsp;&nbsp;f) dry bed initial conditions. Fourth, it was used the RF2D Animation to generate the velocity 
-              field animation. 
-              <br><br>Fifth, it was used the Hazard Intensity Maps in the Results vs Time to choose the Swiss Method for 
-              Water Flooding in order to generate a shapefile with the four categories (low hazard, low danger zone, 
-              medium zone and high danger zone). 
-              </p>
-          </div>
-        </div>
-
-        <div class="question">
-          <div class="question-title">How did we define the watershed areas?</div>
-          <div class="question-content">
-            <p>We obtained all the watersheds along the Kanawha River from the EPA WATERS GeoViewer 2.0 
-              (<a href="https://epa.maps.arcgis.com/apps/webappviewer/index.html?id=074cfede236341b6a1e03779c2bd0692" target="_blank">https://epa.maps.arcgis.com/apps/webappviewer/index.html?id=074cfede236341b6a1e03779c2bd0692</a>).
-              <br>The watersheds that exhibit notable characteristics such as high Topographic Wetness 
-              Index and Impervious Index, were the ones selected.</p>
-          </div>
-        </div>
-
-        <div class="question" >
-          <div class="question-title">How did we define the intensity of the rain?</div>
-          <div class="question-content" id="twoquestions">
-            <p>Data for the Kanawha River-Charleston area was retrieved from the NOAA NCDC 
-              (<a href="https://www.ncei.noaa.gov/cdo-web/" target="_blank">https://www.ncei.noaa.gov/cdo-web/ </a>), 
-              focusing on the Precipitation Hourly of the weather station located in Charleston, WV. 
-              Period of record: Aug/1/1996 – Jan/1/2014<br>
-              Data was curated and analyzed in the HEC-SSP fitting the maximum annual rainfall events in the 
-              Probability Density Function (PDF) Pearson III by means of the Maximum Likelihood Estimators (MLE).
-              <br><br>
-              A maximum rainfall for a 10-year expected event was 38.68mm/h. The rain event followed a bell curve 
-              over a period of 3h. The duration of 3h is empirically defined, however, it is suggested between 1h and 
-              3h for flash flooding events (Fowler et al., 2021). The rainfall development over time adjusted to a bell 
-              curve provided information of the rainfall impact under increasing, maximum and decreasing rainfall causing 
-              a total of 225 mm.
-              <br><br>Fowler, H. J., Lenderink, G., Prein, A. F., Westra, S., Allan, R. Ban, N., Barbero, R., Berg, P., 
-              Blenkinsop, S., Do, H. X., Guerreiro, S. B., Haerter, J. O., Kendon, E., Lewis, E., Schaer, C., 
-              Sharma, A., Villarini, G., Wasko, C. and Zhang, X. (2021). Anthropogenic intensification of 
-              short-duration rainfall extremes. Nature Reviews Earth & Environment, 2. pp. 107-122. 
-                ISSN 2662-138X doi: <a href="https://doi.org/10.1038/s43017-020-00128-6 " target="_blank">https://doi.org/10.1038/s43017-020-00128-6</a> </p>
-              <div class="question-content" id="imagescontainer">
-                <img src="images/faqs3.png" alt="explanation img" id="faqsimg">
-                <img src="images/faqs4.png" alt="explanation img" id="faqsimg">
+    <!--  -->
+        <section class="faq-container">
+            <div class="faq-item">
+              <div class="question">
+              How did we get to the flooding simulations?
+                  <button class="toggle-answer">+</button>
               </div>
+              <div class="answer">     
+                <p>Overall data flow for flash flooding simulations.</p>
+                <img src="images/faqs1.png" alt="explanation img" id="faqsimg">
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="question">
+                What were the materials and methods?
+                  <button class="toggle-answer">+</button>
+              </div>
+              <div class="answer">
+                <p>The areas of interest were defined as a draining area that contributes to the Kanawha River, WV 
+                  by means of a polygon determined in <a href="https://www.epa.gov/waterdata/waters-geoviewer" target="_blank">https://www.epa.gov/waterdata/waters-geoviewer</a>. 
+                  Such polygon was a GEOJSON file used in QGIS. 
+                  <br><br>Using the RiverFlow2D plugin from Hydronia ( <a href="https://www.hydronia.com/riverflow2d" target="_blank">https://www.hydronia.com/riverflow2d</a>) the simulation needed the following information: 
+                  <br>&nbsp;&nbsp;&nbsp;&nbsp;1) Raster file of the topography or DEM.  
+                  <br>&nbsp;&nbsp;&nbsp;&nbsp;2) The shapefile determining the Manning coefficient which was determined from the raster 
+                  file of the land cover after a conversion to a shapefile with the Manning coefficient as an attribute. 
+                  <br>&nbsp;&nbsp;&nbsp;&nbsp;3) The precipitation regime described by the bell curve, and 
+                  <br>&nbsp;&nbsp;&nbsp;&nbsp;4) The outflow which was defined manually in the lower zone of the area of interest. 
+                  <br><br>First, the RiverFlow2D project was created with a coordinate reference system EPSG 32617.  
+                  <br><br>Second, a triangular mesh was generated with 20m of the element size resolution. 
+                  <br><br>Third, the files were exported to RiverFlow2D engine. 
+                  <br><br>  Fourth, settings for the simulation were as follows: 
+                  <br>&nbsp;&nbsp;&nbsp;&nbsp;a) simulation time 3h, 
+                  <br>&nbsp;&nbsp;&nbsp;&nbsp;b) output interval 0.1h, 
+                  <br>&nbsp;&nbsp;&nbsp;&nbsp;c) Courant number (CFL) equal to 1, 
+                  <br>&nbsp;&nbsp;&nbsp;&nbsp;d) the rainfall/evaporation component was activated, 
+                  <br>&nbsp;&nbsp;&nbsp;&nbsp;e) with output maximum and output hazard files and 
+                  <br>&nbsp;&nbsp;&nbsp;&nbsp;f) dry bed initial conditions. Fourth, it was used the RF2D Animation to generate the velocity 
+                  field animation. 
+                  <br><br>Fifth, it was used the Hazard Intensity Maps in the Results vs Time to choose the Swiss Method for 
+                  Water Flooding in order to generate a shapefile with the four categories (low hazard, low danger zone, 
+                  medium zone and high danger zone). 
+                  </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="question">
+                How did we define the watershed areas?
+                  <button class="toggle-answer">+</button>
+              </div>
+              <div class="answer">
+                <p>We obtained all the watersheds along the Kanawha River from the EPA WATERS GeoViewer 2.0 
+                  (<a href="https://epa.maps.arcgis.com/apps/webappviewer/index.html?id=074cfede236341b6a1e03779c2bd0692" target="_blank">https://epa.maps.arcgis.com/apps/webappviewer/index.html?id=074cfede236341b6a1e03779c2bd0692</a>).
+                  <br>The watersheds that exhibit notable characteristics such as high Topographic Wetness 
+                  Index and Impervious Index, were the ones selected.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="question">
+                How did we define the intensity of the rain?
+                  <button class="toggle-answer">+</button>
+              </div>
+              <div class="answer">
+                <p>Data for the Kanawha River-Charleston area was retrieved from the NOAA NCDC 
+                  (<a href="https://www.ncei.noaa.gov/cdo-web/" target="_blank">https://www.ncei.noaa.gov/cdo-web/ </a>), 
+                  focusing on the Precipitation Hourly of the weather station located in Charleston, WV. 
+                  Period of record: Aug/1/1996 – Jan/1/2014<br>
+                  Data was curated and analyzed in the HEC-SSP fitting the maximum annual rainfall events in the 
+                  Probability Density Function (PDF) Pearson III by means of the Maximum Likelihood Estimators (MLE).
+                  <br><br>
+                  A maximum rainfall for a 10-year expected event was 38.68mm/h. The rain event followed a bell curve 
+                  over a period of 3h. The duration of 3h is empirically defined, however, it is suggested between 1h and 
+                  3h for flash flooding events (Fowler et al., 2021). The rainfall development over time adjusted to a bell 
+                  curve provided information of the rainfall impact under increasing, maximum and decreasing rainfall causing 
+                  a total of 225 mm.
+                  <br><br>Fowler, H. J., Lenderink, G., Prein, A. F., Westra, S., Allan, R. Ban, N., Barbero, R., Berg, P., 
+                  Blenkinsop, S., Do, H. X., Guerreiro, S. B., Haerter, J. O., Kendon, E., Lewis, E., Schaer, C., 
+                  Sharma, A., Villarini, G., Wasko, C. and Zhang, X. (2021). Anthropogenic intensification of 
+                  short-duration rainfall extremes. Nature Reviews Earth & Environment, 2. pp. 107-122. 
+                    ISSN 2662-138X doi: <a href="https://doi.org/10.1038/s43017-020-00128-6 " target="_blank">https://doi.org/10.1038/s43017-020-00128-6</a> </p>
+                  <div class="question-content" id="imagescontainer">
+                    <img src="images/faqs3.png" alt="explanation img" id="faqsimg">
+                    <img src="images/faqs4.png" alt="explanation img" id="faqsimg">
+                  </div>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="question">
+                How did we retrieve the Digital Elevation Model (DEM)?
+                  <button class="toggle-answer">+</button>
+              </div>
+              <div class="answer">
+                <p>Raster files of the DEM were retrieved from the WV Elevation and LIDAR Download Tool
+                  (<a href="http://data.wvgis.wvu.edu/elevation/" target="_blank">http://data.wvgis.wvu.edu/elevation/</a>), 
+                  using the more recent files.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="question">
+                How did we incorporate Manning's coefficient?
+                  <button class="toggle-answer">+</button>
+              </div>
+              <div class="answer">
+                <p>A raster file of the land cover was retrieved from the Multi-Resolution Land Characteristics Consortium 
+                  (MRLC, <a href="https://www.mrlc.gov/" target="_blank">https://www.mrlc.gov/</a>) 
+                  for the Kanawha River-Charleston, WV area. 
+                  <br>The raster file corresponded to 
+                  the 2019 CONUS Land Cover. Then, QGIS was used to convert the raster file to a shapefile indicating the 
+                  Manning Coefficient by following the table.</p>
+                  <img src="images/faqs2.png" alt="explanation img" id="faqsimg">
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="question">
+                How did we define the hazard intensity map?
+                  <button class="toggle-answer">+</button>
+              </div>
+              <div class="answer">
+                <p>The Swiss method is a combination of the maximum water depth and the product of the water depth and 
+                  velocity (Somos et al., 2016).<br><br>
+                  Somos-Valenzuela, M. A., Chisolm, R. E., Rivas, D. S., Portocarrero, C., and McKinney, D. C.: 
+                  Modeling a glacial lake outburst flood process chain: the case of Lake Palcacocha and Huaraz, Peru, 
+                  Hydrol. Earth Syst. Sci., 20, 2519–2543, <a href="https://doi.org/10.5194/hess-20-2519-2016" target="_blank">https://doi.org/10.5194/hess-20-2519-2016</a>, 2016.
+                  .</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="question">
+                Extra Information
+                  <button class="toggle-answer">+</button>
+              </div>
+              <div class="answer">
+                <p>Infiltration was not considered to simplify simulations and challenging methods to identify proper settings. 
               
-          </div>
-        </div>
+                  <br><br>Additionally, flash flooding is happening in a short period of time, then, infiltration may become marginal; 
+                  this assumption is valid for soils with minimum content of sand, which is our case ( <a href="https://websoilsurvey.nrcs.usda.gov/app/" target="_blank">https://websoilsurvey.nrcs.usda.gov/app/</a>). 
+                 
+                  <br><br>Evapotranspiration was not included in these simulations since it is a marginal effect during a 3h-period of the rainfall.
+                  
+                  <br><br>Raster files used in these simulations were not edited so infrastructure such as culvers, bridges and other special constructions draining water were not considered in these simulations. 
+                  </p>
+              </div>
+            </div>
 
-        <div class="question">
-          <div class="question-title">How did we retrieve the Digital Elevation Model (DEM)?</div>
-          <div class="question-content">
-            <p>Raster files of the DEM were retrieved from the WV Elevation and LIDAR Download Tool
-               (<a href="http://data.wvgis.wvu.edu/elevation/" target="_blank">http://data.wvgis.wvu.edu/elevation/</a>), 
-               using the more recent files.</p>
-          </div>
-        </div>
+            <div class="faq-item">
+              <div class="question">
+                Where to obtain more information on Flood Maps?
+                  <button class="toggle-answer">+</button>
+              </div>
+              <div class="answer">
+                <p>Go to the website <a href="https://www.fema.gov/flood-maps" target="_blank">https://www.fema.gov/flood-maps</a>.</p>
+              </div>
+            </div>
 
-        <div class="question">
-          <div class="question-title">How did we incorporate Manning's coefficient?</div>
-          <div class="question-content">
-            <p>A raster file of the land cover was retrieved from the Multi-Resolution Land Characteristics Consortium 
-              (MRLC, <a href="https://www.mrlc.gov/" target="_blank">https://www.mrlc.gov/</a>) 
-              for the Kanawha River-Charleston, WV area. 
-              <br>The raster file corresponded to 
-              the 2019 CONUS Land Cover. Then, QGIS was used to convert the raster file to a shapefile indicating the 
-              Manning Coefficient by following the table.</p>
-              <img src="images/faqs2.png" alt="explanation img" id="faqsimg">
-          </div>
-        </div>
 
-        <div class="question">
-          <div class="question-title">How did we define the hazard intensity map?</div>
-          <div class="question-content">
-            <p>The Swiss method is a combination of the maximum water depth and the product of the water depth and 
-              velocity (Somos et al., 2016).<br><br>
-              Somos-Valenzuela, M. A., Chisolm, R. E., Rivas, D. S., Portocarrero, C., and McKinney, D. C.: 
-              Modeling a glacial lake outburst flood process chain: the case of Lake Palcacocha and Huaraz, Peru, 
-              Hydrol. Earth Syst. Sci., 20, 2519–2543, <a href="https://doi.org/10.5194/hess-20-2519-2016" target="_blank">https://doi.org/10.5194/hess-20-2519-2016</a>, 2016.
-              .</p>
-          </div>
-        </div>
+            <!-- Add more FAQ items similarly -->
+            
+        </section>
+    
 
-        
-
-        
-
-        <div class="question">
-          <div class="question-title">Extra Information</div>
-          <div class="question-content">
-            <p>Infiltration was not considered to simplify simulations and challenging methods to identify proper settings. 
-              
-              <br><br>Additionally, flash flooding is happening in a short period of time, then, infiltration may become marginal; 
-              this assumption is valid for soils with minimum content of sand, which is our case ( <a href="https://websoilsurvey.nrcs.usda.gov/app/" target="_blank">https://websoilsurvey.nrcs.usda.gov/app/</a>). 
-             
-              <br><br>Evapotranspiration was not included in these simulations since it is a marginal effect during a 3h-period of the rainfall.
-              
-              <br><br>Raster files used in these simulations were not edited so infrastructure such as culvers, bridges and other special constructions draining water were not considered in these simulations. 
-              </p>
-          </div>
-        </div>
-
-        <div class="question">
-          <div class="question-title">Where to obtain more information on Flood Maps?</div>
-          <div class="question-content">
-            <p>Go to the website <a href="https://www.fema.gov/flood-maps" target="_blank">https://www.fema.gov/flood-maps</a>.</p>
-          </div>
-        </div>
-
-      </div>
-
-    </div>
     <div class="bottom">
-      <img src="images\logo1.png" alt="logob" class="logo">
+    <img src="images\logo1.png" alt="logob" class="logo">
     </div>
 
-      <script src="script.js"></script>
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+        const toggleButtons = document.querySelectorAll('.toggle-answer');
 
-  </body>
+        toggleButtons.forEach(button => {
+            button.addEventListener('click', function() {
+            const answer = this.parentNode.nextElementSibling;
+            if (answer.style.display === 'none' || answer.style.display === '') {
+                answer.style.display = 'block';
+                this.textContent = '-';
+            } else {
+                answer.style.display = 'none';
+                this.textContent = '+';
+            }
+            });
+        });
+        });
+    </script>
+</body>
 </html>

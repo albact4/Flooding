@@ -350,39 +350,49 @@ button {
 /*********************************************************************/
 /*         FAQs                                                      */
 /*********************************************************************/
-.faq {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 10px;
+
+
+
+.faq-container {
+  margin: 20px auto;
+  width: 80%;
 }
 
+.faq-item {
+  border: 1px solid #b6b6b6b9;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #ebebeb;
+}
 .question {
-  margin-bottom: 20px;
-}
-
-.question-title {
-  background-color: #e2e3e5;
-  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   cursor: pointer;
 }
 
-#faqsimg {
-  width: 500px;
-  height: auto;
+.answer {
+  display: none;
   padding: 10px;
+  background-color: #fffdfa;
+  text-align: left; /* Center-align images */
+
 }
 
-#twoquestions{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+.toggle-answer {
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
 }
-#imagescontainer{
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
+
+.answer img {
+  display: block; /* This removes any surrounding whitespace */
+  margin: 0 auto; /* Center-align images horizontally */
+  max-width: 100%;
+  width: 70vh;
+  height: auto;
+  margin-top: 10px;
 }
 
 

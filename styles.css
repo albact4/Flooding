@@ -354,14 +354,14 @@ button {
 
 
 .faq-container {
-  margin: 20px auto;
+  margin: 2% auto;
   width: 80%;
 }
 
 .faq-item {
   border: 1px solid #b6b6b6b9;
   padding: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   background-color: #ebebeb;
 }
 .question {
@@ -369,13 +369,14 @@ button {
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
+  margin: 5px;
 }
 
 .answer {
   display: none;
   padding: 10px;
   background-color: #fffdfa;
-  text-align: left; /* Center-align images */
+  text-align: left; /* Keep text left-aligned */
 
 }
 

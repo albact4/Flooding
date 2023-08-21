@@ -60,8 +60,8 @@
 </html>
 <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
 <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
-<script src="data\A1P.js"></script>
-<script src="data\A2P.js"></script>
+<script src="data/A1P.js"></script>
+<script src="data/A2P.js"></script>
 <script src="data/A7P.js"></script>
 <script src="data/A14P.js"></script>
 <script src="data/A18P.js"></script>
@@ -129,6 +129,7 @@ L.control.layers(baseLayers).addTo(map);
 
 L.Control.geocoder().addTo(map);
 
+
 L.geoJSON(A1P).addTo(map);
 L.geoJSON(A2P).addTo(map);
 L.geoJSON(A7P).addTo(map);
@@ -153,9 +154,8 @@ function getColor(d) {
 function style(feature) {
         return {
         fillColor: getColor(feature.properties.density),
-        weight: 1,
-        opacity: 0.1,
-        color: '#ffffff00',
+        opacity: 0.3,
+        color: '#000000',
         dashArray: '1',
         fillOpacity: 0.5
     };
@@ -168,6 +168,7 @@ function highlightFeature(e) {
     var layer = e.target;
 
     layer.setStyle({
+        stroke: false,
         weight: 5,
         color: '#666',
         dashArray: '',
@@ -190,7 +191,6 @@ var geojson;
 
 geojson = L.geoJson(A1P, A2P, A7P, A14P, A18P, A20P, A26P, A30P, A32P, A35P, A36P, A38P);
 
-
 function zoomToFeature(e) {
     map.fitBounds(e.target.getBounds());
 }
@@ -207,6 +207,8 @@ geojson = L.geoJson(A2P, {
     style: style,
     onEachFeature: onEachFeature
 }).addTo(map);
+
+
 geojson = L.geoJson(A1P,  {
     style: style,
     onEachFeature: onEachFeature

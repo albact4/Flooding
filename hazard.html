@@ -73,6 +73,7 @@
 <script src="data/A36P.js"></script>
 <script src="data/A37P.js"></script>
 <script src="data/A38P.js"></script>
+<script src="data/reproject.js"></script>
 
 <script>
 
@@ -129,50 +130,35 @@ L.control.layers(baseLayers).addTo(map);
 
 L.Control.geocoder().addTo(map);
 
-
-L.geoJSON(A1P).addTo(map);
-L.geoJSON(A2P).addTo(map);
-L.geoJSON(A7P).addTo(map);
-L.geoJSON(A14P).addTo(map);
-L.geoJSON(A18P).addTo(map);
-L.geoJSON(A20P).addTo(map);
-L.geoJSON(A26P).addTo(map);
-L.geoJSON(A30P).addTo(map);
-L.geoJSON(A32P).addTo(map);
-L.geoJSON(A35P).addTo(map);
-L.geoJSON(A36P).addTo(map);
-L.geoJSON(A37P).addTo(map);
-L.geoJSON(A38P).addTo(map);
-
 function getColor(d) {
-    return d > 2.1 ? '#800026' :
+    return d > 2.1 ? '#F70419' : /*darker red: 800026*/
            d > 1.1  ? '#FFFF00' :
-           d > 0.1  ? '#008000' :
+           d > 0.1  ? '#23C823' : /*darker green: 008000*/
                        'transparent';
 }
 
 function style(feature) {
         return {
-        fillColor: getColor(feature.properties.density),
-        opacity: 0.3,
-        color: '#000000',
-        dashArray: '1',
-        fillOpacity: 0.5
+            fillColor: getColor(feature.properties.density),
+                stroke: true,
+                weight: 2,
+                opacity: 1,
+                color: '#000000',
+                dashArray: '1',
+                fillOpacity: 0.5
     };
 }
-
-L.geoJson(A1P, A2P, A7P, A14P, A18P, A20P, A26P, A30P, A32P, A35P, A36P, A38P,{style: style}).addTo(map);
 
 
 function highlightFeature(e) {
     var layer = e.target;
 
     layer.setStyle({
-        stroke: false,
-        weight: 5,
-        color: '#666',
-        dashArray: '',
-        fillOpacity: 0.7
+        stroke: true,
+                weight: 1,
+                opacity: 1,
+                color: '#000000',
+                fillOpacity: 1
     });
 
     if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
@@ -187,9 +173,6 @@ function resetHighlight(e) {
     info.update();
 }
 
-var geojson;
-
-geojson = L.geoJson(A1P, A2P, A7P, A14P, A18P, A20P, A26P, A30P, A32P, A35P, A36P, A38P);
 
 function zoomToFeature(e) {
     map.fitBounds(e.target.getBounds());
@@ -203,60 +186,16 @@ function onEachFeature(feature, layer) {
     });
 }
 
-geojson = L.geoJson(A2P, {
-    style: style,
-    onEachFeature: onEachFeature
-}).addTo(map);
+// Loop for Adding GeoJSON Layers
+var fileNames = ["A1P", "A2P", "A7P", "A14P", "A18P", "A20P", "A26P", "A30P", "A32P", "A35P", "A36P", "A37P", "A38P", "reproject"];
 
-
-geojson = L.geoJson(A1P,  {
-    style: style,
-    onEachFeature: onEachFeature
-}).addTo(map);
-geojson = L.geoJson(A7P,  {
-    style: style,
-    onEachFeature: onEachFeature
-}).addTo(map);
-geojson = L.geoJson(A14P, {
-    style: style,
-    onEachFeature: onEachFeature
-}).addTo(map);
-geojson = L.geoJson(A18P,  {
-    style: style,
-    onEachFeature: onEachFeature
-}).addTo(map);
-geojson = L.geoJson(A20P,  {
-    style: style,
-    onEachFeature: onEachFeature
-}).addTo(map);
-geojson = L.geoJson(A26P, {
-    style: style,
-    onEachFeature: onEachFeature
-}).addTo(map);
-geojson = L.geoJson(A30P,  {
-    style: style,
-    onEachFeature: onEachFeature
-}).addTo(map);
-geojson = L.geoJson(A32P,  {
-    style: style,
-    onEachFeature: onEachFeature
-}).addTo(map);
-geojson = L.geoJson(A32P, {
-    style: style,
-    onEachFeature: onEachFeature
-}).addTo(map);
-geojson = L.geoJson(A35P,  {
-    style: style,
-    onEachFeature: onEachFeature
-}).addTo(map);
-geojson = L.geoJson(A37P,  {
-    style: style,
-    onEachFeature: onEachFeature
-}).addTo(map);
-geojson = L.geoJson(A38P,  {
-    style: style,
-    onEachFeature: onEachFeature
-}).addTo(map);
+for (var i = 0; i < fileNames.length; i++) {
+    var fileName = fileNames[i];
+    var geojson = L.geoJSON(window[fileName], {
+        style: style,
+        onEachFeature: onEachFeature
+    }).addTo(map);
+}
 
 
 var locateButton = document.getElementById('locateUser');

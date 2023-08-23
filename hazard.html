@@ -60,6 +60,24 @@
 </html>
 <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
 <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+
+
+<script src="data/AXPP/A1PP.js"> </script>
+<script src="data/AXPP/A2PP.js"> </script>
+<script src="data/AXPP/A7PP.js"> </script>
+<script src="data/AXPP/A14PP.js"> </script>
+<script src="data/AXPP/A18PP.js"> </script>
+<script src="data/AXPP/A20PP.js"> </script>
+<script src="data/AXPP/A26PP.js"> </script>
+<script src="data/AXPP/A30PP.js"> </script>
+<script src="data/AXPP/A32PP.js"> </script>
+<script src="data/AXPP/A35PP.js"> </script>
+<script src="data/AXPP/A36PP.js"> </script>
+<script src="data/AXPP/A37PP.js"> </script>
+<script src="data/AXPP/A38PP.js"> </script>
+<script src="data/AXPP/A40PP.js"> </script>
+
+<!--   
 <script src="data/A1P.js"></script>
 <script src="data/A2P.js"></script>
 <script src="data/A7P.js"></script>
@@ -73,7 +91,7 @@
 <script src="data/A36P.js"></script>
 <script src="data/A37P.js"></script>
 <script src="data/A38P.js"></script>
-<script src="data/reproject.js"></script>
+<script src="data/reproject.js"></script> -->
 
 <script>
 
@@ -139,7 +157,7 @@ function getColor(d) {
 
 function style(feature) {
         return {
-            fillColor: getColor(feature.properties.density),
+            fillColor: getColor(feature.properties.var),
                 stroke: true,
                 weight: 2,
                 opacity: 1,
@@ -187,7 +205,7 @@ function onEachFeature(feature, layer) {
 }
 
 // Loop for Adding GeoJSON Layers
-var fileNames = ["A1P", "A2P", "A7P", "A14P", "A18P", "A20P", "A26P", "A30P", "A32P", "A35P", "A36P", "A37P", "A38P", "reproject"];
+var fileNames = ["A1PP", "A2PP", "A7PP", "A14PP", "A18PP", "A20PP", "A26PP", "A30PP", "A32PP", "A35PP", "A36PP", "A37PP", "A38PP", "A40PP"];
 
 for (var i = 0; i < fileNames.length; i++) {
     var fileName = fileNames[i];
@@ -227,7 +245,7 @@ info.onAdd = function (map) {
 info.update = function (props) {
     this._div.innerHTML = 
     '<h4> Kanawha River Flooding Intensity (Levels: 1, 2, 3)</h4>' +  (props ?
-    '<b>  '+  'Level  '  + props.density 
+    '<b>  '+  'Level  '  + props.var 
     : 'Hover over a zone');
 };
 

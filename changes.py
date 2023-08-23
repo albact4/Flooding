@@ -1,36 +1,8 @@
-import json
+
+import os
 import re
-"""
-# Load the JSON data from the JavaScript file
-with open('data\A1P.js', 'r') as js_file:
-    js_data = js_file.read()
-
-# Extract the JSON object from the JavaScript variable assignment
-js_data = js_data[js_data.index('{') : js_data.rindex('}') + 1]
-
-# Parse the JSON data
-data = json.loads(js_data)
-
-# Function to round coordinates to 5 significant figures
-def round_coordinates(coordinates):
-    return round(coordinates, 5)
-
-# Modify the coordinates in the features
-for feature in data['features']:
-    coordinates = feature['geometry']['coordinates']
-    for polygon in coordinates:
-        for ring in polygon:
-            for i, point in enumerate(ring):
-                ring[i] = [round_coordinates(coord) for coord in point]
-
-# Save the modified JSON data back to the file
-with open('modified_js_file.js', 'w') as modified_js_file:
-    modified_js_file.write('var A38P = ' + json.dumps(data, indent=4))
-
-print("Coordinates rounded and saved to 'modified_js_file.js'")"""
-
 import json
-import re
+
 
 def round_coordinates(coord_list):
     for i, coord in enumerate(coord_list):
@@ -39,40 +11,46 @@ def round_coordinates(coord_list):
         else:
             coord_list[i] = round(coord, 10)
 
-# Replace 'your_js_file.js' with the actual path to your JavaScript file
-input_filename = 'data/A2P.js'
-output_filename = input_filename.replace('.js', 'S.js')
+# Replace with the path to your folder containing .geojson files
+input_folder = 'C:\\Users\\Rojano\\Desktop\\GeoJsons\\formatting geojsons'
 
-# Read the JavaScript file
-with open(input_filename, 'r') as js_file:
-    js_content = js_file.read()
-
-# Extract the JSON content from the JavaScript variable
-match = re.search(r'\{.*\}', js_content, re.DOTALL)
-if match:
-    json_content = match.group()
-    data = json.loads(json_content)
-
-    # Modify the variable name
-    variable_name = input_filename.replace('.js', 'S')
-
-    # Iterate through features and modify coordinates
-    for feature in data.get('features', []):
-        geometry = feature.get('geometry', {})
-        coordinates = geometry.get('coordinates', [])
-        round_coordinates(coordinates)
-
-    # Write the modified JSON content to the new JavaScript file
-    with open(output_filename, 'w') as modified_js_file:
-        modified_js_file.write(f'var {variable_name} = ' + json.dumps(data, indent=4))
-else:
-    print("JSON content not found in the JavaScript file.")
+# Replace with the path to the folder where you want to save modified files
+output_folder = 'C:\\Users\\Rojano\\Documents\\GitHub\\Flooding\\data\\AXP'
 
 
+for filename in os.listdir(input_folder):
+    if filename.endswith('.geojson'):
+        input_filepath = os.path.join(input_folder, filename)
+        output_filepath = os.path.join(output_folder, filename.replace('.geojson', 'P.js')) 
+
+
+    with open(input_filepath, 'r') as geojson_file:
+            geojson_content = geojson_file.read()
+
+    match = re.search(r'\{.*\}', geojson_content, re.DOTALL)
+    if match:
+        json_content = match.group()
+        data = json.loads(json_content)
+
+        variable_name = filename.replace('.geojson', 'P')
+
+        for feature in data.get('features', []):
+            geometry = feature.get('geometry', {})
+            coordinates = geometry.get('coordinates', [])
+            round_coordinates(coordinates)
+
+        with open(output_filepath, 'w') as modified_js_file:
+            modified_js_file.write(f'var {variable_name} = ' + json.dumps(data, indent=4))
+    else:
+        print("JSON content not found in the GeoJSON file.")
+
+print("GeoJSON files modified and saved in", output_folder)
 
 
 
 
+
+"""
 import os
 import json
 
@@ -109,4 +87,4 @@ for filename in os.listdir(input_folder):
                 js_file.write(f'var {variable_name} = ' + json.dumps(data, indent=4))
                 js_file.write('\n')
 
-print("Conversion and variable declaration complete.")
+print("Conversion and variable declaration complete.")"""

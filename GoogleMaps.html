@@ -20,7 +20,7 @@
       function initMap() {
         const map = new google.maps.Map(document.getElementById("map"), {
           center: { lat: 38.3798, lng: -81.6626 },
-          zoom: 10,
+          zoom: 11,
         });
     
     
@@ -41,7 +41,7 @@
         "#FF00FF", // Magenta - 36
         "#008000", // Dark Green - 37
         "#000080",  // Navy - 38
-        "#FFFFFF"  // Black - River
+        "#FFFFFF"  // White - River
       ];  
     
       const watershedMarkers = [
@@ -207,7 +207,13 @@
           position: { lat: 38.36640 , lng: -81.66997 },
           map: map,
           title: "Kanawha River",
-          content: "Kanawha River"
+          content:  `
+          <h2>Select:</h2>
+          <div>
+            <button class="primary-button" onclick="hideTextAndShowGif('gifs/VideoArea40.gif')">Flooding</button>
+            <button class="primary-button" onclick="hideTextAndShowGif('HzImages/HazardZone38.png')">Hazardous</button>
+          </div>
+          `,
         },
       ];
 
@@ -9341,6 +9347,21 @@
 { lat: 38.54044526010996, lng: -81.85389860362697 },
 { lat: 38.54025141298085, lng: -81.85416119376093 },
         ],
+        // Watershed (37.geojson)
+        [
+        { lat: 38.5272580427898, lng: -81.92693992767595 },
+        { lat: 38.52813311904726, lng: -81.92705850529346 },
+        { lat: 38.54889524374242, lng: -81.85321969825773 },
+{ lat: 38.54767753412939, lng: -81.85256138586807 },
+{ lat: 38.54726670766901, lng: -81.85294882386023 },
+{ lat: 38.54660765928524, lng: -81.85448317870485 },
+{ lat: 38.54606730357669, lng: -81.85428035079178 },
+{ lat: 38.545194372653725, lng: -81.85290491331082 },
+{ lat: 38.543426372967154, lng: -81.85228585729907 },
+{ lat: 38.54286734678269, lng: -81.85250713121818 },
+{ lat: 38.54095639778684, lng: -81.85118574177459 },
+{ lat: 38.54044526010996, lng: -81.85389860362697 },
+        ],
 
       ];
     
@@ -9358,7 +9379,6 @@
       }); 
 
       }
-      
     
       
       function showGif(gifUrl) {

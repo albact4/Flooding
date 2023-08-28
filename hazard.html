@@ -189,16 +189,37 @@ function onEachFeature(feature, layer) {
     });
 }
 
+
+/*
+fetch('data//AXS//file_names.txt') 
+    .then(response => response.text())
+    .then(data => {
+        const fileNames = data.split("\n").filter(Boolean); // Split lines and remove empty entries
+        window.alert('Filenames.', fileNames);
+        for (var i = 0; i < fileNames.length; i++) {
+            var fileName = fileNames[i];
+            var geojson = L.geoJSON(window[fileName], {
+                style: style,
+                onEachFeature: onEachFeature
+            }).addTo(map);
+        }
+
+    })
+    .catch(error => {
+        window.alert('Error fetching filenames.');
+    });*/
+
+    
 // Loop for Adding GeoJSON Layers
 var fileNames = ["A1S", "A2S", "A7S", "A14S", "A18S", "A20S", "A26S", "A30S", "A32S", "A35S", "A36S", "A37S", "A38S", "A40PP"];
-
 for (var i = 0; i < fileNames.length; i++) {
-    var fileName = fileNames[i];
-    var geojson = L.geoJSON(window[fileName], {
-        style: style,
-        onEachFeature: onEachFeature
-    }).addTo(map);
-}
+        var fileName = fileNames[i];
+        var geojson = L.geoJSON(window[fileName], {
+            style: style,
+            onEachFeature: onEachFeature
+        }).addTo(map);
+    }
+
 
 
 var locateButton = document.getElementById('locateUser');

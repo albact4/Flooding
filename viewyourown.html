@@ -1,0 +1,271 @@
+<!--Responsible 
+    Author
+        Yhocsan 
+            Uzzi 
+                G.G.-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hazard Zones</title>
+
+    <!-- Link to favicon image -->
+    <link rel="icon" type="image/x-icon" href="images\favicon.ico">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+    
+    <!-- Link to CSS file -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
+    <style>
+    
+    #map{
+        height: 0vh;
+        width: 50%;
+    }
+    </style>
+
+</head>
+<script src="map.js"></script>
+
+    <!-- Top Nav Menu -->
+    <div class="topnav" id="myTopnav">
+        <a href="https://www.wvstateu.edu/" class="logo">
+            <img src="images\logo1.png" alt="Logo">
+        </a>
+        <a href="index.html" class="active">Home</a>
+        <a href="GoogleMaps.html">Simulations</a>
+        <a href="hazard.html">Hazard Zones</a>
+        <a href="about.html">FAQs</a>
+        <a href="contact.html">Contact</a>
+  </div>
+    <h1>View Your Own Areas</h1>
+    
+    <h4>This page allows you to visualize the areas of your interest</h4>
+
+    <h1>File Upload</h1>
+    <form action="upload.php" method="POST" enctype="multipart/form-data">
+        <label for="file">Select a file:</label>
+        <input type="file" name="file" id="file" accept=".txt, .pdf, .docx">
+        <br>
+        <input type="submit" name="submit" value="Upload">
+    </form>
+
+    <div id="container1">
+        <div id="map"></div>
+    </div>
+
+    <div class="buttons">
+        <a href="https://www.theweathernetwork.com/en/maps/radar">-Actual Weather-</a>
+        <button id="locateUser" class="button">-<strong>Find Me</strong>-</button></div>   
+    </div>
+
+    <div class="bottom">
+        <img src="images\logo1.png" alt="logob" class="logo">
+    </div>
+    
+</body>
+</html>
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+
+
+<script src="data/AXS/A1S.js"> </script>
+<script src="data/AXS/A2S.js"> </script>
+<script src="data/AXS/A7S.js"> </script>
+<script src="data/AXS/A14S.js"> </script>
+<script src="data/AXS/A18S.js"> </script>
+<script src="data/AXS/A20S.js"> </script>
+<script src="data/AXS/A26S.js"> </script>
+<script src="data/AXS/A30S.js"> </script>
+<script src="data/AXS/A32S.js"> </script>
+<script src="data/AXS/A35S.js"> </script>
+<script src="data/AXS/A36S.js"> </script>
+<script src="data/AXS/A37S.js"> </script>
+<script src="data/AXS/A38S.js"> </script>
+
+<script src="data/AXPP/A40PP.js"> </script>
+
+<script>
+
+
+
+
+    var map = L.map('map').setView([41.019552, -97.058091], 5);
+var osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+});
+osm.addTo(map);
+
+
+
+var CartoDB_DarkMatter = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+subdomains: 'abcd',
+	maxZoom: 19
+});
+CartoDB_DarkMatter.addTo(map);
+
+
+
+googleStreets = L.tileLayer('http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}',{
+    maxZoom: 20,
+    subdomains:['mt0','mt1','mt2','mt3']
+ });
+ googleStreets.addTo(map);
+
+ 
+googleSat = L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',{
+   maxZoom: 20,
+   subdomains:['mt0','mt1','mt2','mt3']
+ });
+googleSat.addTo(map);
+
+var Stamen_Watercolor = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.{ext}', {
+ attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+subdomains: 'abcd',
+minZoom: 1,
+maxZoom: 16,
+ext: 'jpg'
+});
+Stamen_Watercolor.addTo(map);
+
+var baseLayers = {
+    "OpenStreetMap": osm,
+    "Google Map":googleStreets,
+    "Water Color":Stamen_Watercolor,
+    "OpenStreetMap": osm,
+    "Satellite":googleSat,
+};
+
+L.control.layers(baseLayers).addTo(map);
+
+
+L.Control.geocoder().addTo(map);
+
+function getColor(d) {
+    return d > 2.1 ? '#F70419' : /*darker red: 800026*/
+           d > 1.1  ? '#FFFF00' :
+           d > 0.1  ? '#23C823' : /*darker green: 008000*/
+                       'transparent';
+}
+
+function style(feature) {
+        return {
+            fillColor: getColor(feature.properties.var),
+                stroke: true,
+                weight: 2,
+                opacity: 1,
+                color: '#000000',
+                dashArray: '1',
+                fillOpacity: 0.5
+    };
+}
+
+
+function highlightFeature(e) {
+    var layer = e.target;
+
+    layer.setStyle({
+        stroke: true,
+                weight: 1,
+                opacity: 1,
+                color: '#000000',
+                fillOpacity: 1
+    });
+
+    if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+        layer.bringToFront();
+    }
+
+    info.update(layer.feature.properties);
+}
+
+function resetHighlight(e) {
+    geojson.resetStyle(e.target);
+    info.update();
+}
+
+
+function zoomToFeature(e) {
+    map.fitBounds(e.target.getBounds());
+}
+
+function onEachFeature(feature, layer) {
+    layer.on({
+        mouseover: highlightFeature,
+        mouseout: resetHighlight,
+        click: zoomToFeature
+    });
+}
+
+// Loop for Adding GeoJSON Layers
+var fileNames = ["A1S", "A2S", "A7S", "A14S", "A18S", "A20S", "A26S", "A30S", "A32S", "A35S", "A36S", "A37S", "A38S", "A40PP"];
+
+for (var i = 0; i < fileNames.length; i++) {
+    var fileName = fileNames[i];
+    var geojson = L.geoJSON(window[fileName], {
+        style: style,
+        onEachFeature: onEachFeature
+    }).addTo(map);
+}
+
+
+var locateButton = document.getElementById('locateUser');
+
+        locateButton.addEventListener('click', function() {
+            if ('geolocation' in navigator) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    var userLocation = [position.coords.latitude, position.coords.longitude];
+                    var userMarker = L.marker(userLocation).addTo(map);
+                    map.setView(userLocation, 14);
+                }, function(error) {
+                    console.error('Error getting user location:', error.message);
+                });
+            } else {
+                console.error('Geolocation is not available in this browser.');
+            }
+        });
+
+
+var info = L.control();
+
+info.onAdd = function (map) {
+    this._div = L.DomUtil.create('div', 'info'); 
+    this.update();
+    return this._div;
+};
+
+
+info.update = function (props) {
+    this._div.innerHTML = 
+    '<h4> Kanawha River Flooding Intensity (Levels: 1, 2, 3)</h4>' +  (props ?
+    '<b>  '+  'Level  '  + props.var 
+    : 'Hover over a zone');
+};
+
+info.addTo(map);
+
+var legend = L.control({position: 'bottomright'});
+
+legend.onAdd = function (map) {
+
+    var div = L.DomUtil.create('div', 'info legend'),
+        grades = [1, 2, 3],
+        labels = ['Level 1:Low', 'Level 2:Medium', 'Level 3:High'];
+        div.innerHTML='<h4><b>Hazard Flooding Intensity</b></h4>';
+   
+    for (var i = 0; i < labels.length; i++) {
+        div.innerHTML +=
+            '<i style="background:' + getColor(grades[i] ) + '"></i> ' +
+            '<b>  '+ labels[i] + (labels[i] ? '' + '<br>' : '+');
+    }
+
+    return div;
+};
+
+legend.addTo(map);
+</script>

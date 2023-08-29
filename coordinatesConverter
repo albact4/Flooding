@@ -1,13 +1,12 @@
 import re
 
 # Read input file
-with open('coordinates/input.txt', 'r') as file:
+with open('input.txt', 'r') as file:
     data = file.read()
 
 # Extract coordinates using regular expression
 coordinates = re.findall(r'[-+]?\d+\.\d+', data)
 
-# Convert coordinates to the desired format
 # Convert coordinates to the desired format
 converted_coordinates = []
 for i in range(0, len(coordinates), 2):
@@ -16,5 +15,5 @@ for i in range(0, len(coordinates), 2):
     converted_coordinates.append(f"{{ lat: {lat}, lng: {lng} }},")
 
 # Write converted coordinates to output file
-with open('coordinates/38.txt', 'w') as file:
+with open('40.txt', 'w') as file:
     file.write('\n'.join(converted_coordinates))

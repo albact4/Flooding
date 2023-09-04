@@ -15,7 +15,8 @@ def round_coordinates(coord_list):
 
 
 # Path to input folder containing .geojson files
-input_folder_geojson = 'C:\\Users\\Rojano\\Desktop\\GeoJsons\\formatting geojsons'
+# gjson or formatting geojsons
+input_folder_geojson = 'C:\\Users\\Rojano\\Desktop\\GeoJsons\\gjson'
 
 # Path to output folder containing new .js files
 output_folder_js = 'C:\\Users\\Rojano\\Documents\\GitHub\\Flooding\\data\\AXS'
@@ -51,37 +52,41 @@ for filename in os.listdir(input_folder_geojson):
         match = re.search(r'\{.*\}', geojson_content, re.DOTALL)
         if match:
             json_content = match.group()
-            data = json.loads(json_content)
+            try:
+                data = json.loads(json_content)
 
-            # Modify the variable name and store it in the file_names array
-            variable_name = filename.replace('P.geojson', 'S')
-            # Append variable name to the array
-            file_names.append(variable_name)  
+                # Modify the variable name and store it in the file_names array
+                variable_name = filename.replace('P.geojson', 'S')
+                # Append variable name to the array
+                file_names.append(variable_name)  
 
-            # Round coordinates within the JSON data
-            for feature in data.get('features', []):
-                geometry = feature.get('geometry', {})
-                coordinates = geometry.get('coordinates', [])
-                round_coordinates(coordinates)
+                # Round coordinates within the JSON data
+                for feature in data.get('features', []):
+                    geometry = feature.get('geometry', {})
+                    coordinates = geometry.get('coordinates', [])
+                    round_coordinates(coordinates)
             
-            # Generate modified .js content
-            modified_js_content = f'var {variable_name} = ' + json.dumps(data, indent=4)
+                # Generate modified .js content
+                modified_js_content = f'var {variable_name} = ' + json.dumps(data, indent=4)
 
-            # Remove newlines and compress extra spaces
-            modified_js_content = modified_js_content.replace('\n', ' ')
-            modified_js_content = ' '.join(modified_js_content.split())
+                # Remove newlines and compress extra spaces
+                modified_js_content = modified_js_content.replace('\n', ' ')
+                modified_js_content = ' '.join(modified_js_content.split())
 
-            # Write the modified .js content to the output file
-            with open(output_filepath_js, 'w') as modified_js_file:
-                modified_js_file.write(modified_js_content)
+                # Write the modified .js content to the output file
+                with open(output_filepath_js, 'w') as modified_js_file:
+                    modified_js_file.write(modified_js_content)
 
-            # Write file names to a text file
-            with open(os.path.join(output_folder_js, 'file_names.txt'), 'w') as file_names_file:
-                file_names_file.write('\n'.join(file_names))
+                # Write file names to a text file
+                with open(os.path.join(output_folder_js, 'file_names.txt'), 'w') as file_names_file:
+                    file_names_file.write('\n'.join(file_names))
+                
+                # Update processed_files counter and print progress
+                processed_files += 1
+                print(f"Processed {processed_files} out of {total_files} files.")
             
-            # Update processed_files counter and print progress
-            processed_files += 1
-            print(f"Processed {processed_files} out of {total_files} files.")
+            except json.JSONDecodeError:
+                print(f"JSON content in {filename} is not valid.")
 
         else:
             print("JSON content not found in the GeoJSON file.")

@@ -95,7 +95,12 @@ for filename in os.listdir(input_folder_geojson):
 end_time = time.time()
 time_duration = end_time - start_time
 
+# Convert time_duration to hours, minutes, and seconds
+hours, remainder = divmod(time_duration, 3600)
+minutes, seconds = divmod(remainder, 60)
+
+
 # Print completion message and time along with the file names array
 print("GeoJSON files modified, converted to JS, and saved in", output_folder_js)
-print("Duration of process", time_duration)
+print(f"Duration of process: {hours:.0f} hours, {minutes:.0f} minutes, {seconds:.2f} seconds")
 print("File names:", file_names)

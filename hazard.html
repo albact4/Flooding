@@ -194,7 +194,7 @@ fetch('data//AXS//file_names.txt')
     .then(response => response.text())
     .then( data => {
         const fileNames = data.split("\n").map(line => line.replace(/\r/g, '')).filter(Boolean);
-        window.alert('Filenames: ' + JSON.stringify(fileNames));
+        //window.alert('Filenames: ' + JSON.stringify(fileNames));
 
         for (var i = 0; i < fileNames.length; i++) {
             var fileName = fileNames[i];

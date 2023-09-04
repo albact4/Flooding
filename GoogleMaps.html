@@ -11,8 +11,8 @@
     <link rel="stylesheet" href="mapsStyles.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
 
-
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBPMXj1GDdfRvVzbYCTcKSVBIujzERDJns&callback=initMap" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBPMXj1GDdfRvVzbYCTcKSVBIujzERDJns&libraries=places&callback=initMap" async defer></script>
+    
 
 
     <script>
@@ -10598,7 +10598,7 @@
     
       
       function showGif(gifUrl) {
-        const gifContainer = document.getElementById("gif-container");
+        const gifContainer = document.getElementById("gif-box");
     
         // Clear the previous content of the gifContainer
         gifContainer.innerHTML = "";
@@ -10627,7 +10627,7 @@
       }
 
       function toggleFullScreen() {
-        const gifContainer = document.getElementById("gif-container");
+        const gifContainer = document.getElementById("gif-box");
 
         if (document.fullscreenElement) {
           if (document.exitFullscreen) {
@@ -10640,8 +10640,9 @@
         }
       }
 
-      var gifcontainer = document.getElementById("gif-container");
+      var gifcontainer = document.getElementById("gif-box");
       gifcontainer.style.backgroundImage = "url('images/Instructions.png')";
+      
 
 
 
@@ -10670,7 +10671,7 @@
       </div>
       <div class="right-map">
           <!-- Gif -->
-          <div id="gif-container"></div>
+          <div id="gif-box"></div>
 
           <a href="#" class="fullscreen-button" onclick="toggleFullScreen()"> 
             <img src="images/fullscreen.png" alt="Fullscreen Image" style="width: 50px; height: 50px;">
@@ -10690,6 +10691,8 @@
       document.addEventListener("DOMContentLoaded", () => {
         initMap();
       });
+
+    
       //confirm('To display a simulation select a marker and press the flooding button.');
 
     </script>

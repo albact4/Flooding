@@ -25,7 +25,107 @@
     #map{
         height: 0vh;
         width: 50%;
-    }
+    } 
+    .primary-button {
+      /* Styles for primary buttons */
+        --color: #d5b234;
+        font-family: inherit;
+        display: inline-block;
+        width: 6em;
+        height: 2.6em;
+        line-height: 2.5em;
+        overflow: hidden;
+        margin: 5px;
+        font-size: 17px;
+        z-index: 1;
+        color: var(--color);
+        border: 2px solid var(--color);
+        border-radius: 6px;
+        position: relative;
+      }
+      
+      button::before {
+        position: absolute;
+        content: "";
+        background: var(--color);
+        width: 150px;
+        height: 200px;
+        z-index: -1;
+        border-radius: 50%;
+      }
+      
+      button:hover {
+        color: white;
+      }
+      
+      button:before {
+        top: 100%;
+        left: 100%;
+        transition: .3s all;
+      }
+      
+      button:hover::before {
+        top: -30px;
+        left: -30px;
+      }
+    
+    
+        .loading-spinner {
+            display: none;
+            align-items: center;
+            justify-content: center;
+            height: 8em;
+          }
+          
+          .loading-spinner-inner {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+          
+          .loading-spinner-circle {
+            width: 1em;
+            height: 1em;
+            border-radius: 50%;
+            background-color: #d5b234;
+            margin: 0 5px;
+            animation: loading-spinner 1s ease-in-out infinite;
+          }
+          
+          .loading-spinner-circle:nth-child(2) {
+            animation-delay: 0.2s;
+          }
+          
+          .loading-spinner-circle:nth-child(3) {
+            animation-delay: 0.4s;
+          }
+          
+          .loading-spinner-circle:nth-child(4) {
+            animation-delay: 0.6s;
+          }
+          
+          .loading-spinner-circle:nth-child(5) {
+            animation-delay: 0.8s;
+          }
+          
+          @keyframes loading-spinner {
+            0% {
+              transform: scale(1);
+              opacity: 1;
+            }
+          
+            20% {
+              transform: scale(1.5);
+              opacity: 0.5;
+            }
+          
+            100% {
+              transform: scale(1);
+              opacity: 1;
+            }
+          }
+          
+
     </style>
 
 </head>
@@ -45,6 +145,23 @@
     <h1>View Your Own Areas</h1>
     
     <h4>This page allows you to visualize the areas of your interest</h4>
+
+    <h1>Run Python Script</h1>
+    <button id="runButton" class="primary-button {
+        ">Run Script</button>
+    <div class="loading-spinner">
+        <div class="loading-spinner-inner">
+          <div class="loading-spinner-circle"></div>
+          <div class="loading-spinner-circle"></div>
+          <div class="loading-spinner-circle"></div>
+          <div class="loading-spinner-circle"></div>
+          <div class="loading-spinner-circle"></div>
+        </div>
+      </div>
+      
+    <!--<div id="loader" style="display: none;">Loading...</div>-->
+    <div id="output"></div>
+
 
     <h1>File Upload</h1>
     <form action="upload.php" method="POST" enctype="multipart/form-data">
@@ -69,203 +186,22 @@
     
 </body>
 </html>
-<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-<script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
-
-
-<script src="data/AXS/A1S.js"> </script>
-<script src="data/AXS/A2S.js"> </script>
-<script src="data/AXS/A7S.js"> </script>
-<script src="data/AXS/A14S.js"> </script>
-<script src="data/AXS/A18S.js"> </script>
-<script src="data/AXS/A20S.js"> </script>
-<script src="data/AXS/A26S.js"> </script>
-<script src="data/AXS/A30S.js"> </script>
-<script src="data/AXS/A32S.js"> </script>
-<script src="data/AXS/A35S.js"> </script>
-<script src="data/AXS/A36S.js"> </script>
-<script src="data/AXS/A37S.js"> </script>
-<script src="data/AXS/A38S.js"> </script>
-
-<script src="data/AXPP/A40PP.js"> </script>
-
 <script>
-
-
-
-
-    var map = L.map('map').setView([41.019552, -97.058091], 5);
-var osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-});
-osm.addTo(map);
-
-
-
-var CartoDB_DarkMatter = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
-subdomains: 'abcd',
-	maxZoom: 19
-});
-CartoDB_DarkMatter.addTo(map);
-
-
-
-googleStreets = L.tileLayer('http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}',{
-    maxZoom: 20,
-    subdomains:['mt0','mt1','mt2','mt3']
- });
- googleStreets.addTo(map);
-
- 
-googleSat = L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',{
-   maxZoom: 20,
-   subdomains:['mt0','mt1','mt2','mt3']
- });
-googleSat.addTo(map);
-
-var Stamen_Watercolor = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.{ext}', {
- attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-subdomains: 'abcd',
-minZoom: 1,
-maxZoom: 16,
-ext: 'jpg'
-});
-Stamen_Watercolor.addTo(map);
-
-var baseLayers = {
-    "OpenStreetMap": osm,
-    "Google Map":googleStreets,
-    "Water Color":Stamen_Watercolor,
-    "OpenStreetMap": osm,
-    "Satellite":googleSat,
-};
-
-L.control.layers(baseLayers).addTo(map);
-
-
-L.Control.geocoder().addTo(map);
-
-function getColor(d) {
-    return d > 2.1 ? '#F70419' : /*darker red: 800026*/
-           d > 1.1  ? '#FFFF00' :
-           d > 0.1  ? '#23C823' : /*darker green: 008000*/
-                       'transparent';
-}
-
-function style(feature) {
-        return {
-            fillColor: getColor(feature.properties.var),
-                stroke: true,
-                weight: 2,
-                opacity: 1,
-                color: '#000000',
-                dashArray: '1',
-                fillOpacity: 0.5
-    };
-}
-
-
-function highlightFeature(e) {
-    var layer = e.target;
-
-    layer.setStyle({
-        stroke: true,
-                weight: 1,
-                opacity: 1,
-                color: '#000000',
-                fillOpacity: 1
+    document.addEventListener("DOMContentLoaded", function () {
+      const runButton = document.getElementById("runButton");
+      const loader = document.querySelector(".loading-spinner");
+  
+      runButton.addEventListener("click", function () {
+        // Toggle the visibility of the loader
+        loader.style.display = "block"; // Show the loader
+        // You can also add logic to execute your script here
+        // For example, simulate a delay and then hide the loader
+        setTimeout(function () {
+          loader.style.display = "none"; // Hide the loader after a delay
+        }, 3000); // Adjust the delay time (in milliseconds) as needed
+      });
     });
+  </script>
 
-    if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
-        layer.bringToFront();
-    }
-
-    info.update(layer.feature.properties);
-}
-
-function resetHighlight(e) {
-    geojson.resetStyle(e.target);
-    info.update();
-}
-
-
-function zoomToFeature(e) {
-    map.fitBounds(e.target.getBounds());
-}
-
-function onEachFeature(feature, layer) {
-    layer.on({
-        mouseover: highlightFeature,
-        mouseout: resetHighlight,
-        click: zoomToFeature
-    });
-}
-
-// Loop for Adding GeoJSON Layers
-var fileNames = ["A1S", "A2S", "A7S", "A14S", "A18S", "A20S", "A26S", "A30S", "A32S", "A35S", "A36S", "A37S", "A38S", "A40PP"];
-
-for (var i = 0; i < fileNames.length; i++) {
-    var fileName = fileNames[i];
-    var geojson = L.geoJSON(window[fileName], {
-        style: style,
-        onEachFeature: onEachFeature
-    }).addTo(map);
-}
-
-
-var locateButton = document.getElementById('locateUser');
-
-        locateButton.addEventListener('click', function() {
-            if ('geolocation' in navigator) {
-                navigator.geolocation.getCurrentPosition(function(position) {
-                    var userLocation = [position.coords.latitude, position.coords.longitude];
-                    var userMarker = L.marker(userLocation).addTo(map);
-                    map.setView(userLocation, 14);
-                }, function(error) {
-                    console.error('Error getting user location:', error.message);
-                });
-            } else {
-                console.error('Geolocation is not available in this browser.');
-            }
-        });
-
-
-var info = L.control();
-
-info.onAdd = function (map) {
-    this._div = L.DomUtil.create('div', 'info'); 
-    this.update();
-    return this._div;
-};
-
-
-info.update = function (props) {
-    this._div.innerHTML = 
-    '<h4> Kanawha River Flooding Intensity (Levels: 1, 2, 3)</h4>' +  (props ?
-    '<b>  '+  'Level  '  + props.var 
-    : 'Hover over a zone');
-};
-
-info.addTo(map);
-
-var legend = L.control({position: 'bottomright'});
-
-legend.onAdd = function (map) {
-
-    var div = L.DomUtil.create('div', 'info legend'),
-        grades = [1, 2, 3],
-        labels = ['Level 1:Low', 'Level 2:Medium', 'Level 3:High'];
-        div.innerHTML='<h4><b>Hazard Flooding Intensity</b></h4>';
-   
-    for (var i = 0; i < labels.length; i++) {
-        div.innerHTML +=
-            '<i style="background:' + getColor(grades[i] ) + '"></i> ' +
-            '<b>  '+ labels[i] + (labels[i] ? '' + '<br>' : '+');
-    }
-
-    return div;
-};
-
-legend.addTo(map);
-</script>
+  
+<script src="batch.js" ></script>

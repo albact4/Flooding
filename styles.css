@@ -333,16 +333,109 @@ button {
 }
 
 
+
 /*********************************************************************/
-/*          Filling Container                                        */
+/*          Contact Page                                             */
 /*********************************************************************/
-#fill{
-  padding: 25px;
-  height: 450px;
+
+.contact_container{
+  position: relative;
+  min-width: 1100px;
+  min-height: 600px;
   display: flex;
-  flex-direction: column;
   align-items: center;
+  z-index: 1000;
+
+}
+
+section{
+  display: flex;
   justify-content: center;
+  align-items: center;
+  min-height: 95vh;
+  background: rgb(207, 171, 43);
+}
+
+section::before{
+  content: '';
+  position: absolute;
+  top: 20;
+  left: 0;
+  width: 50%;
+  height: 95%;
+  background: #f2f2f2;
+}
+
+.contact_container .contactInfo {
+  position: absolute;
+  width: 350px;
+  height: calc(100% - 80px);
+  background:  rgb(207, 171, 43);
+  z-index: 1;
+  padding: 40px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 20px 25px rgb(255, 255, 255, 0.25);
+}
+
+.contact_container .contactInfo .h2 {
+  color: #333;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.contact_container .contactInfo ul.info {
+  position: relative;
+  margin: 20px 0;
+}
+
+.contact_container .contactInfo ul.info li {
+  position: relative;
+  list-style: none;
+  display: flex;
+  margin: 20px 0;
+  cursor: pointer;
+  align-items: flex-start;
+}
+
+.contact_container .contactInfo ul.info li span::nth-child(1) {
+  width: 30px;
+  min-width: 30px;
+}
+
+.contact_container .contactInfo ul.info li span::nth-child(1) img{
+  max-width: 100%;
+  filter: invert(1);
+}
+
+.contact_container .contactInfo ul.info li span::nth-child(2){
+  color: #000;
+  margin-left: 10px;
+  font-weight: 300;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.contact_container .contactForm {
+  position: absolute;
+  padding: 70px 50px;
+  padding-left: 250px;
+  margin-left: 150px;
+  width: calc(100% - 150px);
+  height: 100%;
+  background: #333;
+  box-shadow: 0 50px 50px rgb(255, 255, 255, 0.25);
 
 }
 
@@ -356,6 +449,7 @@ button {
 .faq-container {
   margin: 2% auto;
   width: 80%;
+  height: 75vh;
 }
 
 .faq-item {
@@ -396,65 +490,3 @@ button {
   margin-top: 10px;
 }
 
-
-/*********************************************************************/
-/*          Hazard Zones                                             */
-/*********************************************************************/
-
-.buttons {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 10px;
-  font-size: 14px;
-  background-color: rgb(51, 51, 51);
-}
-
-.buttons a {
-  background-color: rgb(51, 51, 51);
-  color: rgb(255, 255, 255);
-  text-decoration: none;
-  margin: 0 10px;
-}
-
-#locateUser {
-  background-color: rgb(51, 51, 51);
-  color: white;
-  border: none;
-  padding: 15px 25px;
-  cursor: pointer;
- 
-}
-
-.h4 {
-  font-family: 'Open Sans', Arial, sans-serif;
-  background-color: #fffdfa;
-
-}
-
-.info {
-  padding: 6px 8px;
-  font: 17px/30px 'Open Sans', Arial, sans-serif;
-  background: white;
-  background: rgba(255,255,255,0.8);
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  border-radius: 10px;
-}
-.info h4 {
-  margin: 0 0 15px;
-  color: #000000;
-}
-
-.legend {
-  line-height: 20px;
-  color: #000000;
-}
-
-.legend i {
-  width: 10px;
-  height: 10px;
-  float: left;
-  margin-right: 8px;
-  opacity: 0.7;
-  padding: 4px;
-}

@@ -196,8 +196,10 @@ button {
   justify-content: center;
   align-items: center;
   position: relative;
-  
 }
+
+
+
 
 .title {
   width: 100vw; /* Set the width to 100% of the viewport width */
@@ -338,6 +340,7 @@ button {
 /*          Contact Page                                             */
 /*********************************************************************/
 
+/* The `.contact_container` class is used to style a container element on the contact page. */
 .contact_container{
   position: relative;
   min-width: 1100px;
@@ -374,7 +377,6 @@ section::before{
   z-index: 1;
   padding: 40px;
   display: flex;
-  justify-content: center;
   flex-direction: column;
   justify-content: space-between;
   box-shadow: 0 20px 25px rgb(255, 255, 255, 0.25);
@@ -395,31 +397,29 @@ section::before{
   position: relative;
   list-style: none;
   display: flex;
-  margin: 20px 0;
+  margin: 40px 0;
   cursor: pointer;
   align-items: flex-start;
 }
 
-.contact_container .contactInfo ul.info li span::nth-child(1) {
-  width: 30px;
-  min-width: 30px;
-}
-
-.contact_container .contactInfo ul.info li span::nth-child(1) img{
-  max-width: 100%;
+/* Select the first span containing the icon/image inside each li */
+.contact_container .contactInfo ul.info li span:nth-child(1) img {
+  width: 30px; /* Set the width as needed */
+  height: auto; /* Maintain aspect ratio */
+  max-width: 100%; /* Ensure the image doesn't exceed its container */
+  display: inline-block; /* Ensure inline alignment */
   filter: invert(1);
 }
 
-.contact_container .contactInfo ul.info li span::nth-child(2){
+
+/* The CSS rule `.contact_container .contactInfo ul.info li span:nth-child(2)` is targeting the second
+span element inside each list item (`li`) inside the `ul` element with the class `info` inside the
+element with the class `contactInfo` inside the element with the class `contact_container`. */
+.contact_container .contactInfo ul.info li span:nth-child(2) {
   color: #000;
   margin-left: 10px;
   font-weight: 300;
 }
-
-
-
-
-
 
 
 
@@ -432,7 +432,7 @@ section::before{
   padding: 70px 50px;
   padding-left: 250px;
   margin-left: 150px;
-  width: calc(100% - 150px);
+  width: calc(100% - 350px);
   height: 100%;
   background: #333;
   box-shadow: 0 50px 50px rgb(255, 255, 255, 0.25);
@@ -440,11 +440,33 @@ section::before{
 }
 
 
+.contact_container .contactForm h2{
+  color: #f2f2f2;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+
+
+
+
+
+
+
+
+
 /*********************************************************************/
 /*         FAQs                                                      */
 /*********************************************************************/
 
+#elements-container{
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 
+}
 
 .faq-container {
   margin: 2% auto;
@@ -469,7 +491,7 @@ section::before{
 .answer {
   display: none;
   padding: 10px;
-  background-color: #fffdfa;
+  background-color: #ebebeb;
   text-align: left; /* Keep text left-aligned */
 
 }
@@ -490,3 +512,13 @@ section::before{
   margin-top: 10px;
 }
 
+.footer {
+  background-color: #333; /* Set the background color of your footer */
+  color: #fff; /* Set the text color of your footer */
+  padding: 10px; /* Adjust the padding as needed */
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+
+}

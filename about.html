@@ -31,12 +31,13 @@
       
       <i class="fa fa-bars"></i>
       </a>
-</div>
-    <div id="container1"> </div>
+    </div>
+
+    <div id="elements-container"> 
     <h1>Frequently Asked Questions</h1>
 
     <!--  -->
-        <section class="faq-container">
+        <div class="faq-container">
             <div class="faq-item">
               <div class="question">
               How did we get to the flooding simulations?
@@ -174,8 +175,7 @@
               </div>
               <div class="answer">
                 <p>Infiltration was not considered to simplify simulations and challenging methods to identify proper settings. 
-              
-                  <br><br>Additionally, flash flooding is happening in a short period of time, then, infiltration may become marginal; 
+                  Additionally, flash flooding is happening in a short period of time, then, infiltration may become marginal; 
                   this assumption is valid for soils with minimum content of sand, which is our case ( <a href="https://websoilsurvey.nrcs.usda.gov/app/" target="_blank">https://websoilsurvey.nrcs.usda.gov/app/</a>). 
                  
                   <br><br>Evapotranspiration was not included in these simulations since it is a marginal effect during a 3h-period of the rainfall.
@@ -198,11 +198,13 @@
 
             <!-- Add more FAQ items similarly -->
             
-        </section>
+          </div>
+          </div>
+
     
 
     <div class="bottom">
-    <img src="images\logo1.png" alt="logob" class="logo">
+      <img src="images\logo1.png" alt="logob" class="logo">
     </div>
 
     <script src="script.js"></script>

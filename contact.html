@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Contact Information</title>
 
   <!-- Link to favicon image -->
@@ -54,33 +58,36 @@
     </div>
 
     <div class="contactForm"> 
-        <h2>Send a Message</h2>
-        <div class="formBox">
-          <div class="inputBox w50">
-            <input type="text" required>
-            <span>First Name</span>
-          </div>
-          <div class="inputBox w50">
-            <input type="text" required>
-            <span>Last Name</span>
-          </div>
-          <div class="inputBox w50">
-            <input type="email" required>
-            <span>Email Address</span>
-          </div>
-          <div class="inputBox w50">
-            <input type="text" required>
-            <span>Mobile Number</span>
-          </div>
-          <div class="inputBox w100">
-            <textarea required>
-            <span>Write your message here...</span>
-          </div>
-          <div class="inputBox w100">
-            <input type="submit" value="Send">
-          </div>
-
+      <h2>Send a Message</h2>
+      <form action="send_email.php" method="POST"></form>
+      <div class="formBox">
+        <div class="inputBox w50">
+          <label for="firstName">First Name</label>
+          <input type="text" id="firstName" required placeholder="First Name">
         </div>
+        <div class="inputBox w50">
+          <label for="lastName">Last Name</label>
+          <input type="text" id="lastName" required placeholder="Last Name">
+        </div>
+        <div class="inputBox w50">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" required  placeholder="Email Address">
+        </div>
+        <div class="inputBox w50">
+          <label for="mobileNumber">Mobile Number</label>
+          <input type="text" id="mobileNumber" required placeholder="Mobile Number">
+        </div>
+        <div class="inputBox w100">
+          <label for="message">Write your Message...</label>
+          <textarea id="message" required placeholder="Write your Message..."></textarea>
+        </div>
+        <div class="inputBox w100">
+          <button>
+            <span>Send</span>
+          </button>
+        </div>
+      </div>
+      </form>
     </div>
     
 </div>
@@ -92,5 +99,36 @@
 
 
   <script src="script.js"></script>
+  <script> 
+    
+    // Add an event listener when the DOM (document) is fully loaded
+    document.addEventListener('DOMContentLoaded', function() {
+    // Select all input and textarea fields on the page
+    const inputFields = document.querySelectorAll('input, textarea');
+
+    // Loop through each input and textarea field
+    inputFields.forEach(field => {
+      // Add an event listener to each field for input events (typing)
+      field.addEventListener('input', function() {
+        // Find the label associated with the current field
+        const label = this.parentElement.querySelector('label');
+
+        // Check if the field's value is not empty
+        if (this.value !== '') {
+          // If the field is not empty, change the label's text color to a lighter color
+          label.style.color = "#f2f2f2"; // Use style.color to change label color
+        } else {
+          // If the field is empty, change the label's text color back to its original color
+          label.style.color = "#333"; // Use style.color to change label color
+        }
+      });
+    });
+  });
+
+
+
+
+  </script>
+  
 </body>
 </html>

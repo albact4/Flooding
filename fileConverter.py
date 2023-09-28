@@ -16,7 +16,7 @@ def round_coordinates(coord_list):
 
 # Path to input folder containing .geojson files
 # gjson or formatting geojsons
-input_folder_geojson = 'C:\\Users\\Rojano\\Desktop\\GeoJsons\\gjson'
+input_folder_geojson = 'C:\\Users\\Rojano\\Desktop\\gjson'
 
 # Path to output folder containing new .js files
 output_folder_js = 'C:\\Users\\Rojano\\Documents\\GitHub\\Flooding\\data\\AXS'

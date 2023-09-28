@@ -349,7 +349,7 @@ button {
 
 }
 
-section{
+#mySection{
   display: flex;
   justify-content: center;
   align-items: center;
@@ -357,7 +357,7 @@ section{
   background: rgb(207, 171, 43);
 }
 
-section::before{
+#mySection::before{
   content: '';
   position: absolute;
   top: 55px;

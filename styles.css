@@ -655,13 +655,20 @@ animation: scaleUp 0.3s ease-in-out;
 /*********************************************************************/
 /*         FAQs                                                      */
 /*********************************************************************/
+#faq-section {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
 
 #elements-container{
+  flex-grow: 1;
+  /*
   padding: 5px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: center;*/
 
 }
 

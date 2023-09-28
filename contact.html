@@ -59,7 +59,7 @@
 
     <div class="contactForm"> 
       <h2>Send a Message</h2>
-      <form action="send_email.php" method="POST"></form>
+      <form onsubmit="sendEmail(); reset(); return false;">
       <div class="formBox">
         <div class="inputBox w50">
           <label for="firstName">First Name</label>
@@ -99,8 +99,34 @@
 
 
   <script src="script.js"></script>
+  <script src="https://smtpjs.com/v3/smtp.js"></script>
   <script> 
     
+    function sendEmail(){
+      Email.send({
+        Host : "smtp.gmail.com",
+        Username : "albaclosat@gmail.com",
+        Password : "password",
+        To : 'aclosatarres@wvstateu.edu',
+        From : document.getElementById("email").value,
+        Subject : "New Contact Form Enquiry",
+        Body : "And this is the body"
+    }).then(
+      message => alert(message)
+    );
+    }
+
+
+
+
+
+
+
+
+
+
+
+
     // Add an event listener when the DOM (document) is fully loaded
     document.addEventListener('DOMContentLoaded', function() {
     // Select all input and textarea fields on the page
@@ -124,8 +150,6 @@
       });
     });
   });
-
-
 
 
   </script>

@@ -48,7 +48,17 @@
                   <button class="toggle-answer">+</button>
               </div>
               <div class="answer">     
-                <p>Overall data flow for flash flooding simulations.</p>
+                <p>To create our flash flooding simulations and hazard intensity maps, we required three key components: rainfall data, a Digital Elevation Model (DEM), and land cover information.
+
+                  <<br>&nbsp;&nbsp;&nbsp;&nbsp;1) Rainfall Data Analysis: We performed Probability Density Function (PDF) analysis on hourly rainfall data spanning 18 years. This data, collected at hourly intervals, enabled us to identify 10-year rainfall events, a crucial parameter for our simulations.
+                  
+                  <br>&nbsp;&nbsp;&nbsp;&nbsp;2) Digital Elevation Model (DEM): Utilizing the DEM, we pinpointed specific areas of interest and generated the necessary mesh for our simulations. The DEM provided essential topographical information for our modeling.
+                  
+                  <br>&nbsp;&nbsp;&nbsp;&nbsp;3) Land Cover Assessment: To account for flow resistance related to vegetation types, we examined land cover data. We applied Manning coefficients to our dataset, allowing us to incorporate vegetation characteristics into our simulations.
+                  
+                  <br><br>By integrating these three components, we successfully developed our flash flooding simulations and subsequently produced hazard zone maps.
+                  
+                  <br><br>Image shows the overall data flow for flash flooding simulations.</p>
                 <img src="images/faqs1.png" alt="explanation img" id="faqsimg">
               </div>
             </div>
@@ -62,22 +72,22 @@
                 <p>The areas of interest were defined as a draining area that contributes to the Kanawha River, WV 
                   by means of a polygon determined in <a href="https://www.epa.gov/waterdata/waters-geoviewer" target="_blank">https://www.epa.gov/waterdata/waters-geoviewer</a>. 
                   Such polygon was a GEOJSON file used in QGIS. 
-                  <br><br>Using the RiverFlow2D plugin from Hydronia ( <a href="https://www.hydronia.com/riverflow2d" target="_blank">https://www.hydronia.com/riverflow2d</a>) the simulation needed the following information: 
+                  <br><br>Using the RiverFlow2D plugin from Hydronia ( <a href="https://www.hydronia.com/riverflow2d" target="_blank">https://www.hydronia.com/riverflow2d</a>), the simulation needed the following information: 
                   <br>&nbsp;&nbsp;&nbsp;&nbsp;1) Raster file of the topography or DEM.  
                   <br>&nbsp;&nbsp;&nbsp;&nbsp;2) The shapefile determining the Manning coefficient which was determined from the raster 
                   file of the land cover after a conversion to a shapefile with the Manning coefficient as an attribute. 
-                  <br>&nbsp;&nbsp;&nbsp;&nbsp;3) The precipitation regime described by the bell curve, and 
+                  <br>&nbsp;&nbsp;&nbsp;&nbsp;3) The precipitation regime described by the bell curve. 
                   <br>&nbsp;&nbsp;&nbsp;&nbsp;4) The outflow which was defined manually in the lower zone of the area of interest. 
                   <br><br>First, the RiverFlow2D project was created with a coordinate reference system EPSG 32617.  
                   <br><br>Second, a triangular mesh was generated with 20m of the element size resolution. 
                   <br><br>Third, the files were exported to RiverFlow2D engine. 
                   <br><br>  Fourth, settings for the simulation were as follows: 
-                  <br>&nbsp;&nbsp;&nbsp;&nbsp;a) simulation time 3h, 
-                  <br>&nbsp;&nbsp;&nbsp;&nbsp;b) output interval 0.1h, 
-                  <br>&nbsp;&nbsp;&nbsp;&nbsp;c) Courant number (CFL) equal to 1, 
-                  <br>&nbsp;&nbsp;&nbsp;&nbsp;d) the rainfall/evaporation component was activated, 
-                  <br>&nbsp;&nbsp;&nbsp;&nbsp;e) with output maximum and output hazard files and 
-                  <br>&nbsp;&nbsp;&nbsp;&nbsp;f) dry bed initial conditions. Fourth, it was used the RF2D Animation to generate the velocity 
+                  <br>&nbsp;&nbsp;&nbsp;&nbsp;a) Simulation time 3h
+                  <br>&nbsp;&nbsp;&nbsp;&nbsp;b) Output interval 0.1h
+                  <br>&nbsp;&nbsp;&nbsp;&nbsp;c) Courant number (CFL) equal to 1
+                  <br>&nbsp;&nbsp;&nbsp;&nbsp;d) The rainfall/evaporation component was activated
+                  <br>&nbsp;&nbsp;&nbsp;&nbsp;e) With output maximum and output hazard files
+                  <br>&nbsp;&nbsp;&nbsp;&nbsp;f) Dry bed initial conditions. Fourth, it was used the RF2D Animation to generate the velocity 
                   field animation. 
                   <br><br>Fifth, it was used the Hazard Intensity Maps in the Results vs Time to choose the Swiss Method for 
                   Water Flooding in order to generate a shapefile with the four categories (low hazard, low danger zone, 
@@ -111,6 +121,10 @@
                   Period of record: Aug/1/1996 – Jan/1/2014<br>
                   Data was curated and analyzed in the HEC-SSP fitting the maximum annual rainfall events in the 
                   Probability Density Function (PDF) Pearson III by means of the Maximum Likelihood Estimators (MLE).
+                  <div class="question-content" id="imagescontainer">
+                    <img src="images/faqs3.png" alt="explanation img" id="faqsimg">
+                    <img src="images/faqs4.png" alt="explanation img" id="faqsimg">
+                  </div>
                   <br><br>
                   A maximum rainfall for a 10-year expected event was 38.68mm/h. The rain event followed a bell curve 
                   over a period of 3h. The duration of 3h is empirically defined, however, it is suggested between 1h and 
@@ -122,10 +136,7 @@
                   Sharma, A., Villarini, G., Wasko, C. and Zhang, X. (2021). Anthropogenic intensification of 
                   short-duration rainfall extremes. Nature Reviews Earth & Environment, 2. pp. 107-122. 
                     ISSN 2662-138X doi: <a href="https://doi.org/10.1038/s43017-020-00128-6 " target="_blank">https://doi.org/10.1038/s43017-020-00128-6</a> </p>
-                  <div class="question-content" id="imagescontainer">
-                    <img src="images/faqs3.png" alt="explanation img" id="faqsimg">
-                    <img src="images/faqs4.png" alt="explanation img" id="faqsimg">
-                  </div>
+                  
               </div>
             </div>
 
@@ -152,8 +163,9 @@
                   for the Kanawha River-Charleston, WV area. 
                   <br>The raster file corresponded to 
                   the 2019 CONUS Land Cover. Then, QGIS was used to convert the raster file to a shapefile indicating the 
-                  Manning Coefficient by following the table.</p>
+                  Manning Coefficient by following the table below.</p>
                   <img src="images/faqs2.png" alt="explanation img" id="faqsimg">
+                  <br>Mattocks, C., and C. Forbes, 2008: A real-time, event-triggered storm surge forecasting system for the state of North Carolina. Ocean Modell., 25, 95-119.
               </div>
             </div>
 
@@ -172,6 +184,18 @@
               </div>
             </div>
 
+            
+
+            <div class="faq-item">
+              <div class="question">
+                Where to obtain more information on Flood Maps?
+                  <button class="toggle-answer">+</button>
+              </div>
+              <div class="answer">
+                <p>Go to the website <a href="https://www.fema.gov/flood-maps" target="_blank">https://www.fema.gov/flood-maps</a>.</p>
+              </div>
+            </div>
+            
             <div class="faq-item">
               <div class="question">
                 Extra Information
@@ -188,14 +212,17 @@
                   </p>
               </div>
             </div>
-
+            
             <div class="faq-item">
               <div class="question">
-                Where to obtain more information on Flood Maps?
+                Credits
                   <button class="toggle-answer">+</button>
               </div>
               <div class="answer">
-                <p>Go to the website <a href="https://www.fema.gov/flood-maps" target="_blank">https://www.fema.gov/flood-maps</a>.</p>
+                <p>Alba Closa Tarres (<a href="mailto:aclosatarres@wvstateu.edu">aclosatarres@wvstateu.edu</a>): Conceptualization, Methodology, Software, Data Curation.
+                  <br><br>Yhocsan Uzzi Guevara Garcia (<a href="mailto:essyhocsan@gmail.com">essyhocsan@gmail.com</a>): Methodology, Software, Data Curation.
+                  <br><br>Fernando Rojano Aguilar (<a href="mailto:fernando.rojano@wvstateu.edu">fernando.rojano@wvstateu.edu</a>): Conceptualization, Methodology, Software, Data Curation, Editing & Writing.
+                </p>
               </div>
             </div>
 

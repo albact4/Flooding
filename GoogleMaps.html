@@ -10612,6 +10612,8 @@
     
         // Append the img element to the gifContainer
         gifContainer.appendChild(gifImg);
+        gifContainer.style.background = '#f2f2f2'
+
       }
 
       
@@ -10654,7 +10656,7 @@
       <a href="GoogleMaps.html">Simulations</a>
       <a href="hazard.html">Hazard Zones</a>
       <a href="about.html">FAQs</a>
-      <a href="contact.html">Contact</a>
+      <a href="contact.php">Contact</a>
       
       </a>
     </div>
@@ -10665,7 +10667,11 @@
       </div>
       <div class="right-map">
           <!-- Gif -->
-          <div id="gif-box"> Instructions: To display a </div>
+          <div id="gif-box"> <h2>Instructions</h2><p>To display a simulation follow the steps:
+            <br><br>&nbsp;&nbsp;&nbsp;&nbsp;1) Click on one of the markers of one of the watershed areas from the map on the left.
+            <br><br>&nbsp;&nbsp;&nbsp;&nbsp;2) Select if you want to display the Flooding Simulation or the Hazardous Zones for the watershed.
+            <br><br>&nbsp;&nbsp;&nbsp;&nbsp;3) After you visualize the simulation desired, repeat the process to visualize another one. </p>
+          </div>
 
           <a href="#" class="fullscreen-button" onclick="toggleFullScreen()"> 
             <img src="images/fullscreen.png" alt="Fullscreen Image" style="width: 50px; height: 50px;">

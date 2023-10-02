@@ -1,5 +1,17 @@
+<?php
+
+echo "<pre>";
+  print_r($_POST);
+echo "</pre>";
+
+
+?>
+
+
+
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 
   <meta charset="utf-8">
@@ -59,34 +71,34 @@
 
     <div class="contactForm"> 
       <h2>Send a Message</h2>
-      <form onsubmit="sendEmail(); reset(); return false;">
-      <div class="formBox">
-        <div class="inputBox w50">
-          <label for="firstName">First Name</label>
-          <input type="text" id="firstName" required placeholder="First Name">
+      <form action="contact.php" method="POST" class="form">
+        <div class="formBox">
+          <div class="inputBox w50">
+            <label for="firstName">First Name</label>
+            <input type="text" id="firstName" name="firstName" required placeholder="First Name">
+          </div>
+          <div class="inputBox w50">
+            <label for="lastName">Last Name</label>
+            <input type="text" id="lastName" name="lastName" required placeholder="Last Name">
+          </div>
+          <div class="inputBox w50">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" required  placeholder="Email Address">
+          </div>
+          <div class="inputBox w50">
+            <label for="mobileNumber">Mobile Number</label>
+            <input type="text" id="mobileNumber" name="mobileNumber" required placeholder="Mobile Number">
+          </div>
+          <div class="inputBox w100">
+            <label for="message">Write your Message...</label>
+            <textarea id="message" name="message" required placeholder="Write your Message..."></textarea>
+          </div>
+          <div class="inputBox w100">
+            <button>
+              <span>Send</span>
+            </button>
+          </div>
         </div>
-        <div class="inputBox w50">
-          <label for="lastName">Last Name</label>
-          <input type="text" id="lastName" required placeholder="Last Name">
-        </div>
-        <div class="inputBox w50">
-          <label for="email">Email Address</label>
-          <input type="email" id="email" required  placeholder="Email Address">
-        </div>
-        <div class="inputBox w50">
-          <label for="mobileNumber">Mobile Number</label>
-          <input type="text" id="mobileNumber" required placeholder="Mobile Number">
-        </div>
-        <div class="inputBox w100">
-          <label for="message">Write your Message...</label>
-          <textarea id="message" required placeholder="Write your Message..."></textarea>
-        </div>
-        <div class="inputBox w100">
-          <button>
-            <span>Send</span>
-          </button>
-        </div>
-      </div>
       </form>
     </div>
     

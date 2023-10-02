@@ -17,6 +17,7 @@ h2 {
   text-align: center;
 }
 
+
 /*********************************************************************/
 /*          Top Navigation Menu                                      */
 /*********************************************************************/
@@ -287,19 +288,24 @@ button {
 }
 
 .card__title {
-  margin: 0;
-  font-size: 20px;
+  margin: 5px;
+  font-size: 40px;
   color: #333;
   font-weight: 700;
 }
-
+.cards h4 {
+  font-family: 'Open Sans', Arial, sans-serif;
+  color:  rgb(207, 171, 43);
+  border: #333;
+  font-size: 25px;
+}
 .card:hover svg {
   scale: 0;
 }
 
 .card__description {
   margin: 10px 0 10px;
-  font-size: 12px;
+  font-size: 18px;
   color: #777;
   line-height: 1.4;
 }
@@ -310,6 +316,8 @@ button {
   background: #777;
   border: none;
   color: white;
+  margin-top: 25px;
+  margin-right: 10px;
 }
 
 .secondary {

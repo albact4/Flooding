@@ -1,8 +1,4 @@
-
-
-
 /*Buttons code*/
-
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -36,4 +32,5 @@ document.addEventListener('DOMContentLoaded', () => {
       window.location.href = "about.html";
     });
   });
+  
   

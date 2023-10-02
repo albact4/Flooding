@@ -333,7 +333,6 @@ button {
 }
 
 
-
 /*********************************************************************/
 /*          Contact Page                                             */
 /*********************************************************************/
@@ -655,33 +654,22 @@ animation: scaleUp 0.3s ease-in-out;
 /*********************************************************************/
 /*         FAQs                                                      */
 /*********************************************************************/
-#faq-section {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-#elements-container{
-  flex-grow: 1;
-  /*
-  padding: 5px;
-  display: flex;
+#fill{
+  padding: 25px;
+  height: 18vh;
+  display:flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;*/
-
-}
-
-.faq-container {
-  margin: 2% auto;
-  width: 80%;
-  height: 75vh;
+  justify-content: center;
+  
 }
 
 .faq-item {
   border: 1px solid #b6b6b6b9;
   padding: 10px;
-  margin-bottom: 15px;
+  margin-bottom: 25px;
+  margin-left: 50px;
+  margin-right: 50px;
   background-color: #ebebeb;
 }
 .question {

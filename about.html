@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
   <title>Frequently Asked Questions</title>
 
   <!-- Link to favicon image -->
@@ -10,8 +13,6 @@
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
   <style> /* styles.css */
-
-    
 
 
     </style>
@@ -32,12 +33,15 @@
       <i class="fa fa-bars"></i>
       </a>
     </div>
-<section id="faq-section">
-    <div id="elements-container"> 
-    <h1>Frequently Asked Questions</h1>
 
-    <!--  -->
-        <div class="faq-container">
+
+
+        <h1>Frequently Asked Questions</h1>
+
+    
+        <!--<div class="faq-container">-->
+
+        
             <div class="faq-item">
               <div class="question">
               How did we get to the flooding simulations?
@@ -196,34 +200,42 @@
             </div>
 
 
-            <!-- Add more FAQ items similarly -->
+            <!-- </div> -->
             
-        </div>
-    </div>
+            <div id="fill"></div> 
+           
+          
+          <div class="bottom">
+            <img src="images\logo1.png" alt="logob" class="logo">
+          </div> 
+        
     
-  </section>
-    <div class="bottom">
-      <img src="images\logo1.png" alt="logob" class="logo">
-    </div>
+
 
     <script src="script.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+      document.addEventListener('DOMContentLoaded', function() {
         const toggleButtons = document.querySelectorAll('.toggle-answer');
-
+        const questions = document.querySelectorAll('.question');
+    
         toggleButtons.forEach(button => {
             button.addEventListener('click', function() {
-            const answer = this.parentNode.nextElementSibling;
-            if (answer.style.display === 'none' || answer.style.display === '') {
-                answer.style.display = 'block';
-                this.textContent = '-';
-            } else {
-                answer.style.display = 'none';
-                this.textContent = '+';
-            }
+                const answer = this.parentNode.nextElementSibling;
+                const question = this.parentNode;
+                
+                if (answer.style.display === 'none' || answer.style.display === '') {
+                    answer.style.display = 'block';
+                    question.style.fontWeight = '700'; // Set font-weight to bold
+                    this.textContent = '-';
+                } else {
+                    answer.style.display = 'none';
+                    question.style.fontWeight = '400'; // Set font-weight to normal
+                    this.textContent = '+';
+                }
             });
         });
-        });
+    });
+    
     </script>
 </body>
 </html>

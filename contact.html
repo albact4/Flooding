@@ -1,20 +1,11 @@
-<?php
-
-echo "<pre>";
-  print_r($_POST);
-echo "</pre>";
-
-
-?>
-
-
 
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
 
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Contact Information</title>
@@ -27,6 +18,9 @@ echo "</pre>";
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
 </head>
 <body>
+
+
+
     <!-- Top Nav Menu -->
     <div class="topnav" id="myTopnav">
       <a href="https://www.wvstateu.edu/" class="logo">
@@ -42,7 +36,11 @@ echo "</pre>";
       <i class="fa fa-bars"></i>
       </a>
     </div>
+
+
+   
 <section id="mySection">
+
 <div class="contact_container">
     
   <div class="contactInfo"> 
@@ -57,12 +55,12 @@ echo "</pre>";
             </li>
             <li>
               <span><img src=" images\iconmonstr-gmail-1-240 (1).png"></span>
-              <span>  Alba Closa Tarres (Project leader)
+              <span>  Alba Closa Tarres
                 <br><a href="mailto:aclosatarres@wvstateu.edu">aclosatarres@wvstateu.edu</a> </span>                
             </li>
             <li>
               <span><img src=" images\iconmonstr-gmail-1-240 (1).png"></span>
-              <span>  Fernando Rojano (Supervisor)
+              <span>  Fernando Rojano
                 <br><a href="mailto:fernando.rojano@wvstateu.edu">fernando.rojano@wvstateu.edu</a> </span>
             </li>
           </ul>
@@ -71,7 +69,7 @@ echo "</pre>";
 
     <div class="contactForm"> 
       <h2>Send a Message</h2>
-      <form action="contact.php" method="POST" class="form">
+      <form action="https://formsubmit.co/c3a8ee46ff9f1ba00a16afd5f86ff5e4 " method="POST">
         <div class="formBox">
           <div class="inputBox w50">
             <label for="firstName">First Name</label>
@@ -87,7 +85,7 @@ echo "</pre>";
           </div>
           <div class="inputBox w50">
             <label for="mobileNumber">Mobile Number</label>
-            <input type="text" id="mobileNumber" name="mobileNumber" required placeholder="Mobile Number">
+            <input type="text" id="mobileNumber" name="mobileNumber">
           </div>
           <div class="inputBox w100">
             <label for="message">Write your Message...</label>
@@ -105,6 +103,10 @@ echo "</pre>";
 </div>
 </section>
 
+
+
+
+
 <div class="bottom">
   <img src="images\logo1.png" alt="logob" class="logo">
 </div>
@@ -113,31 +115,6 @@ echo "</pre>";
   <script src="script.js"></script>
   <script src="https://smtpjs.com/v3/smtp.js"></script>
   <script> 
-    
-    function sendEmail(){
-      Email.send({
-        Host : "smtp.gmail.com",
-        Username : "albaclosat@gmail.com",
-        Password : "password",
-        To : 'aclosatarres@wvstateu.edu',
-        From : document.getElementById("email").value,
-        Subject : "New Contact Form Enquiry",
-        Body : "And this is the body"
-    }).then(
-      message => alert(message)
-    );
-    }
-
-
-
-
-
-
-
-
-
-
-
 
     // Add an event listener when the DOM (document) is fully loaded
     document.addEventListener('DOMContentLoaded', function() {

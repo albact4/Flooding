@@ -444,14 +444,27 @@ element with the class `contactInfo` inside the element with the class `contact_
 
 }
 
+.contact_container .contactForm h1{
+  color: #f2f2f2;
+  font-size: 50px;
+  font-weight: 500;
+  margin: 10px;;
+}
 
 .contact_container .contactForm h2{
   color: #f2f2f2;
-  font-size: 24px;
+  font-size: 25px;
   font-weight: 500;
 }
 
 
+.contact_container #success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+}
 
 .contact_container .contactForm .formBox {
   position: relative;

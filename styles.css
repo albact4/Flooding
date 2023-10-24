@@ -219,6 +219,38 @@ button {
 }
 
 
+.info-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+  background-color: hsl(47, 70%, 79%);; /* fffdfa*/
+}
+
+video {
+  width: 50%;
+  height: auto;
+}
+.info-image {
+  width: 50%;
+  height: auto;
+}
+.info-text {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 30px;
+}
+
+.info-description {
+  font-size: 20px;
+  text-align: left;
+  line-height: 1.5em;
+}
+
+
 /*********************************************************************/
 /*          Cards: Flooding & Hazard                                 */
 /*********************************************************************/
@@ -591,6 +623,10 @@ animation: scaleUp 0.3s ease-in-out;
 
 @media (max-width : 1800px)
 {
+.card__description {}
+
+
+
   .contact_container{
     width: 90%;
     min-width: auto;
@@ -621,6 +657,125 @@ animation: scaleUp 0.3s ease-in-out;
     padding-left: 500px;
   }
 }
+
+@media (max-width: 1500px){
+  .card__title {
+    margin: 5px;
+    font-size: 35px;
+  }
+  .cards h4 {
+
+    font-size: 20px;
+  }
+
+  .card__description {
+    margin: 10px 0 10px;
+    font-size: 15px;
+    line-height: 1.4;
+  }
+  
+  .card__button {
+    padding: 15px;
+    margin-top: 25px;
+    margin-right: 10px;
+  }
+  
+  .secondary {
+    background: transparent;
+    color: #777;
+    border: 1px solid #777;
+  }
+  
+
+}
+
+@media (max-width: 1350px){
+  .card__title {
+    margin: 5px;
+    font-size: 25px;
+  }
+  .cards h4 {
+    font-size: 18px;
+  }
+
+  .card__description {
+    margin: 5px 0 5px;
+    font-size: 15px;
+    line-height: 1.2;
+  }
+  
+  .card__button {
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 20px;
+    margin-right: 10px;
+  }
+
+  
+}
+
+@media (max-width: 1200px){
+
+  .cards h4 {
+    display: none;
+  }
+  
+}
+
+@media (max-width: 1000px){
+  .card__title {
+    margin: 5px;
+    font-size: 20px;
+  }
+  .card__description {
+    display: none;
+  }
+  
+}
+
+@media (max-width: 768px) {
+  .card-container {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .card {
+    width: 100%; /* Full width for smaller screens */
+    margin-bottom: 20px;
+  }
+
+  .cards h4 {
+    display: block;
+  }
+
+  .card__description {
+    display: block;
+  }
+  
+/* For screens with a maximum width of 480px (typical for mobile phones) */
+@media (max-width: 580px) {
+  .card-container {
+    gap: 5px;
+  }
+  .card__description {
+    display: none;
+  }
+}
+
+@media (max-width: 526px) {
+
+  .cards h4 {
+    display: none;
+  }
+
+}
+}
+
+
+
+
+
 
 
 @media (max-width: 970px) {
@@ -710,6 +865,7 @@ animation: scaleUp 0.3s ease-in-out;
   padding: 10px;
   background-color: #ebebeb;
   text-align: left; /* Keep text left-aligned */
+  line-height: 1.9em;
 
 }
 
@@ -719,6 +875,7 @@ animation: scaleUp 0.3s ease-in-out;
   font-size: 18px;
   cursor: pointer;
 }
+
 #imagescontainer{
   display: flex;
   flex-direction: row;

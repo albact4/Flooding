@@ -4,12 +4,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Get the buttons by their IDs
     const learnButton = document.getElementById("learnButton");
+    const viewButton = document.getElementById("viewButton");
     const redirectButton = document.getElementById("redirectButton");
     const explanationButton = document.getElementById("explanationButton");
     const redirectButton1 = document.getElementById("redirectButton1");
     const explanationButton1 = document.getElementById("explanationButton1");
   
     learnButton.addEventListener('click', () => {
+      // Redirect to the desired HTML file
+      window.location.href = 'about.html';
+    });
+    viewButton.addEventListener('click', () => {
       // Redirect to the desired HTML file
       window.location.href = 'about.html';
     });

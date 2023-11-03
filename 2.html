@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Flooding Simulator</title>
+    <link rel="icon" type="image/x-icon" href="images\favicon.ico">
+
+    <!-- Link to CSS file -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
+
+    <!-- Leaflet CSS and JavaScript files -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.js"></script>
+
+    <style> 
+
+        
+        
+        
+        .header {
+          position:relative;
+          text-align:center;
+          background: linear-gradient(60deg, #2B6696 0%, #6fa8c3  100%);
+          color:white;
+        }
+        
+        .inner-header {
+          height:65vh;
+          width:100%;
+          margin: 0;
+          padding: 0;
+        }
+        
+        .flex { /*Flexbox for containers*/
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+        }
+        .inner-header h1{
+            color: #fffdfa;
+            margin: 5px;
+            font-size: 4em;
+          }
+          .inner-header h2{
+            color: #fffdfa;
+            margin: 10px;
+            margin-left: 5%;
+            margin-right: 5%;
+            font-size: 1.5em;
+          }
+        .waves {
+          position:relative;
+          width: 100%;
+          height:15vh;
+          margin-bottom:-7px; /*Fix for safari gap*/
+          min-height:100px;
+          max-height:150px;
+        }
+        
+        
+        /* Animation */
+        
+        .parallax > use {
+          animation: move-forever 25s cubic-bezier(.55,.5,.45,.5)     infinite;
+        }
+        .parallax > use:nth-child(1) {
+          animation-delay: -2s;
+          animation-duration: 7s;
+        }
+        .parallax > use:nth-child(2) {
+          animation-delay: -3s;
+          animation-duration: 10s;
+        }
+        .parallax > use:nth-child(3) {
+          animation-delay: -4s;
+          animation-duration: 13s;
+        }
+        .parallax > use:nth-child(4) {
+          animation-delay: -5s;
+          animation-duration: 20s;
+        }
+        @keyframes move-forever {
+          0% {
+           transform: translate3d(-90px,0,0);
+          }
+          100% { 
+            transform: translate3d(85px,0,0);
+          }
+        }
+        /*Shrinking for mobile*/
+        @media (max-width: 768px) {
+          .waves {
+            height:40px;
+            min-height:40px;
+          }
+          .content {
+            height:30vh;
+          }
+          h1 {
+            font-size:24px;
+          }
+        }
+          
+          
+    </style>
+</head>
+
+<body>
+    <!-- Top Nav Menu -->
+    <div class="topnav" id="myTopnav">
+        <a href="https://www.wvstateu.edu/" class="logo">
+            <img src="images\logo1.png" alt="Logo">
+        </a>
+        <a href="index.html" class="active">Home</a>
+        <a href="GoogleMaps.html">Simulations</a>
+        <a href="hazard.html">Hazard Zones</a>
+        <a href="about.html">FAQs</a>
+        <a href="contact.html">Contact</a>
+  </div>
+  <!-- Top Nav Menu -->
+<div class="topnav" id="myTopnav">
+    <!-- Your existing navigation links -->
+</div>
+
+<div class="header">
+    <!-- Content before waves -->
+    <div class="inner-header flex">
+        <h1>Forecast of Flash Flooding</h1>
+        <h2>Visualize and prepare for the impacts of heavy rains and flash flooding in urban areas near the Charleston-Kanawha River, West Virginia.</h2>
+    </div>
+
+    
+<!--Waves Container-->
+<div>
+    <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+    viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+    <defs>
+    <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+    </defs>
+    <g class="parallax">
+    <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7" />
+    <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
+    <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
+    <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" />
+    </g>
+    </svg>
+    </div>
+    <!-- Waves end -->
+</div>
+
+<!-- Content starts -->
+
+<div class="mainButton"> 
+<!--Learn More Button -->
+<button class="learn-more" id="learnButton">
+    <span class="circle" aria-hidden="true">
+    <span class="icon arrow"></span>
+    </span>
+    <span class="button-text">Learn More</span>
+  </button>
+
+</div> 
+
+
+
+
+ <!-- Vines section -->
+ <div class="info-container" >
+     <!--
+    <video autoplay muted loop>
+        <source src="images\crw.mp4" type="video/mp4">
+    </video>-->
+ <img src="images\cwr.jpg" class="info-image">-
+    <div class="info-text">
+        <p class="info-description">
+            Charleston, WV, and its surroundings face a unique challenge due to the hilly terrain, 
+            limited available land for large settlements, and a high number of streams that can 
+            rapidly become fast-flowing during heavy storms. These factors make flash flooding a serious concern for the community.
+
+            <br>We serves as an invaluable resource for residents, businesses, and commuters, 
+            providing critical information about flash flooding risks in the region. </p>
+            <button class="learn-more" id="viewButton">
+                <span class="circle" aria-hidden="true">
+                <span class="icon arrow"></span>
+                </span>
+                <span class="button-text">View More</span>
+              </button>
+    </div>
+</div>
+
+    <div class="cards">
+        <!-- Card Container -->
+        <div class="card-container">
+            <!-- Simulation Card -->
+            <div class="card">
+                <img src="images/FS.png" alt="Card Image"  class="card__image">              
+                <div class="card__content">
+                    <p class="card__title">Flooding Simulations</p>
+                    <h4>Stay Dry, Stay Informed: Interactive Flood Simulations.</h4>
+                    <p class="card__description"> 
+                    "Dive into our interactive map, select an area, and experience flooding simulations. 
+                    Watch videos that bring flooding scenarios to life, helping you understand and prepare for the potential impacts. Stay informed and be flood-ready."</p>
+                    <button class="card__button" id="redirectButton">View Simulations</button>
+                    <button class="card__button secondary" id="explanationButton">Explanation of Simulations</button>
+                </div>
+            </div>
+            <!-- Hazardous Zones Card -->
+            <div class="card">
+                <img src="images/HZ.png" alt="Card Image" class="card__image">                      
+                <div class="card__content">
+                    <p class="card__title">Hazard Zones</p>
+                    <h4>Stay Alert, Stay Safe: Navigating Hazard Zones.</h4>
+                    <p class="card__description"> 
+                    "Explore our interactive map to discover hazard zones in your area. 
+                    Easily identify Level 1, 2, or 3 hazard zones and activate your location to               
+                    view the risks near you. Stay informed and make informed decisions for your safety."</p>
+                    <button class="card__button" id="redirectButton1">View Hazard Zones</button>
+                    <button class="card__button secondary" id="explanationButton1">Explanation of Zones</button>
+                </div>
+            </div>
+        </div>
+    </div>
+        
+   
+    <div class="bottom">
+        <img src="images\logo1.png" alt="logob" class="logo">
+    </div>
+
+    <!-- Link to JavaScript file -->
+    <script src="script.js"></script>
+    <script src="index.js"></script>
+
+
+</body>
+</html>
+
+
+
+<!-- MY_API_KEY = AIzaSyBPMXj1GDdfRvVzbYCTcKSVBIujzERDJns-->

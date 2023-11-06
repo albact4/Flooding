@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,6 +14,7 @@
 
     <!-- Leaflet CSS and JavaScript files -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.js"></script>
 
     <style> 
@@ -50,8 +51,8 @@
           .inner-header h2{
             color: #fffdfa;
             margin: 10px;
-            margin-left: 5%;
-            margin-right: 5%;
+            margin-left: 15%;
+            margin-right: 15%;
             font-size: 1.5em;
           }
         .waves {
@@ -106,7 +107,11 @@
             font-size:24px;
           }
         }
-          
+        
+        
+
+        
+       
           
     </style>
 </head>
@@ -115,18 +120,17 @@
     <!-- Top Nav Menu -->
     <div class="topnav" id="myTopnav">
         <a href="https://www.wvstateu.edu/" class="logo">
-            <img src="images\logo1.png" alt="Logo">
+            <img src="images\logo1.png" alt="WVSU Logo">
         </a>
         <a href="index.html" class="active">Home</a>
         <a href="GoogleMaps.html">Simulations</a>
         <a href="hazard.html">Hazard Zones</a>
         <a href="about.html">FAQs</a>
         <a href="contact.html">Contact</a>
+        <a href="javascript:void(0);" style="font-size:20px;" class="icon" onclick="myFunction()">&#9776;</a>
+        
   </div>
-  <!-- Top Nav Menu -->
-<div class="topnav" id="myTopnav">
-    <!-- Your existing navigation links -->
-</div>
+
 
 <div class="header">
     <!-- Content before waves -->
@@ -176,7 +180,7 @@
     <video autoplay muted loop>
         <source src="images\crw.mp4" type="video/mp4">
     </video>-->
- <img src="images\cwr.jpg" class="info-image">-
+ <img src="images\cwr.jpg" class="info-image" alt="West Virginia capitol">
     <div class="info-text">
         <p class="info-description">
             Charleston, WV, and its surroundings face a unique challenge due to the hilly terrain, 

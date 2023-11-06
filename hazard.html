@@ -28,81 +28,6 @@
         height: 85vh;
         width: 100%;
     }
-    .newtons-cradle {
-        --uib-size: 50px;
-        --uib-speed: 1.2s;
-        --uib-color: #474554;
-        position: absolute;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: var(--uib-size);
-        height: var(--uib-size);
-        z-index: 3;
-       }
-       
-       .newtons-cradle__dot {
-        position: relative;
-        display: flex;
-        align-items: center;
-        height: 100%;
-        width: 25%;
-        transform-origin: center top;
-       }
-       
-       .newtons-cradle__dot::after {
-        content: '';
-        display: block;
-        width: 100%;
-        height: 25%;
-        border-radius: 50%;
-        background-color: var(--uib-color);
-       }
-       
-       .newtons-cradle__dot:first-child {
-        animation: swing var(--uib-speed) linear infinite;
-       }
-       
-       .newtons-cradle__dot:last-child {
-        animation: swing2 var(--uib-speed) linear infinite;
-       }
-       
-       @keyframes swing {
-        0% {
-         transform: rotate(0deg);
-         animation-timing-function: ease-out;
-        }
-       
-        25% {
-         transform: rotate(70deg);
-         animation-timing-function: ease-in;
-        }
-       
-        50% {
-         transform: rotate(0deg);
-         animation-timing-function: linear;
-        }
-       }
-       
-       @keyframes swing2 {
-        0% {
-         transform: rotate(0deg);
-         animation-timing-function: linear;
-        }
-       
-        50% {
-         transform: rotate(0deg);
-         animation-timing-function: ease-out;
-        }
-       
-        75% {
-         transform: rotate(-70deg);
-         animation-timing-function: ease-in;
-        }
-       }
-       
-
-
 
     </style>
 
@@ -119,6 +44,7 @@
         <a href="hazard.html" class="active">Hazard Zones</a>
         <a href="about.html">FAQs</a>
         <a href="contact.html">Contact</a>
+        <a href="javascript:void(0);" style="font-size:20px;" class="icon" onclick="myFunction()">&#9776;</a>
   </div>
     
     <div id="container1">
@@ -142,6 +68,7 @@
     
 </body>
 </html>
+<script src="script.js"></script>
 <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
 <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
 

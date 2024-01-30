@@ -10612,13 +10612,13 @@
         // Get the current viewport width
         var viewportWidth = window.innerWidth || document.documentElement.clientWidth;
     
-        if (viewportWidth < 1000) {
+        if (viewportWidth < 1250) {
             // When viewport width is less than 1000px
             container.style.flexDirection = "column";
             map.style.height = "50vh";
             video.style.height = "50vh";
         } else {
-            // When viewport width is 1000px or greater
+            // When viewport width is 1500px or greater
             container.style.flexDirection = "row";
             map.style.height = "";  // Reset height to its default value
             video.style.height = "";  // Reset height to its default value

@@ -57,7 +57,7 @@ h2 {
 
 .topnav a.active {
   background-color: rgb(207, 171, 43);
-  color: white;
+  color: rgb(0, 0, 0);
 }
 
 .topnav .icon {

@@ -10636,7 +10636,7 @@
         toggleFlexDirection();
     }
     
-
+/*
     function toggleFullScreen() {
       const gifContainer = document.getElementById("gif-box");
   
@@ -10661,7 +10661,46 @@
               document.webkitExitFullscreen();
           }
       }
-  }
+  }*/
+  function toggleFullScreen() {
+    const gifContainer = document.getElementById("gif-box");
+
+    if (!document.fullscreenElement && !document.mozFullScreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement) {
+        // Enter fullscreen mode
+        if (gifContainer.requestFullscreen) {
+            gifContainer.requestFullscreen();
+        } else if (gifContainer.msRequestFullscreen) {
+            gifContainer.msRequestFullscreen();
+        } else if (gifContainer.mozRequestFullScreen) {
+            gifContainer.mozRequestFullScreen();
+        } else if (gifContainer.webkitRequestFullscreen) {
+            gifContainer.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
+        }
+    } else {
+        // Exit fullscreen mode
+        if (document.exitFullscreen) {
+            document.exitFullscreen();
+        } else if (document.msExitFullscreen) {
+            document.msExitFullscreen();
+        } else if (document.mozCancelFullScreen) {
+            document.mozCancelFullScreen();
+        } else if (document.webkitExitFullscreen) {
+            document.webkitExitFullscreen();
+        }
+    }
+}
+
+// Listen for fullscreenchange event to update UI
+document.addEventListener("fullscreenchange", function () {
+    // Update UI based on fullscreen state
+    if (document.fullscreenElement || document.webkitFullscreenElement ||
+        document.mozFullScreenElement || document.msFullscreenElement) {
+        // Update UI for fullscreen mode
+    } else {
+        // Update UI for normal mode
+    }
+});
+
   
 
 

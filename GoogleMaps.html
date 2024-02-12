@@ -10608,6 +10608,7 @@
         var container = document.getElementById("up");
         var map = document.getElementById("left-map");
         var video = document.getElementById("right-map");
+        
     
         // Get the current viewport width
         var viewportWidth = window.innerWidth || document.documentElement.clientWidth;
@@ -10617,6 +10618,7 @@
             container.style.flexDirection = "column";
             map.style.height = "50vh";
             video.style.height = "50vh";
+            
         } else {
             // When viewport width is 1500px or greater
             container.style.flexDirection = "row";
@@ -10634,9 +10636,13 @@
     function hideTextAndShowGif(gifUrl) {
         showGif(gifUrl);
         toggleFlexDirection();
+
+        // Redirect user to the #gif-box section
+        var gifBoxElement = document.getElementById("gif-box");
+        gifBoxElement.scrollIntoView({ behavior: "smooth" });
     }
     
-/*
+
     function toggleFullScreen() {
       const gifContainer = document.getElementById("gif-box");
   
@@ -10661,47 +10667,7 @@
               document.webkitExitFullscreen();
           }
       }
-  }*/
-  function toggleFullScreen() {
-    const gifContainer = document.getElementById("gif-box");
-
-    if (!document.fullscreenElement && !document.mozFullScreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement) {
-        // Enter fullscreen mode
-        if (gifContainer.requestFullscreen) {
-            gifContainer.requestFullscreen();
-        } else if (gifContainer.msRequestFullscreen) {
-            gifContainer.msRequestFullscreen();
-        } else if (gifContainer.mozRequestFullScreen) {
-            gifContainer.mozRequestFullScreen();
-        } else if (gifContainer.webkitRequestFullscreen) {
-            gifContainer.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
-        }
-    } else {
-        // Exit fullscreen mode
-        if (document.exitFullscreen) {
-            document.exitFullscreen();
-        } else if (document.msExitFullscreen) {
-            document.msExitFullscreen();
-        } else if (document.mozCancelFullScreen) {
-            document.mozCancelFullScreen();
-        } else if (document.webkitExitFullscreen) {
-            document.webkitExitFullscreen();
-        }
-    }
-}
-
-// Listen for fullscreenchange event to update UI
-document.addEventListener("fullscreenchange", function () {
-    // Update UI based on fullscreen state
-    if (document.fullscreenElement || document.webkitFullscreenElement ||
-        document.mozFullScreenElement || document.msFullscreenElement) {
-        // Update UI for fullscreen mode
-    } else {
-        // Update UI for normal mode
-    }
-});
-
-  
+  }
 
 
 
@@ -10710,24 +10676,26 @@ document.addEventListener("fullscreenchange", function () {
   <body>
     <!-- Top Nav Menu -->
     <div class="topnav" id="myTopnav">
-      <a href="https://www.wvstateu.edu/" class="logo">
-          <img src="images\logo1.png" alt="Logo">
-      </a>
-      <a href="index.html" >Home</a>
-      <a href="GoogleMaps.html" class="active">Simulations</a>
-      <a href="hazard.html">Hazard Zones</a>
-      <a href="about.html">FAQs</a>
-      <a href="contact.html">Contact</a>
-      <a href="javascript:void(0);" style="font-size:20px;" class="icon" onclick="myFunction()">&#9776;</a>
-      </a>
+        <a href="https://www.wvstateu.edu/" class="logo">
+            <img src="images\logo1.png" alt="Logo">
+        </a>
+        <a href="index.html" >Home</a>
+        <a href="GoogleMaps.html" class="active">Simulations</a>
+        <a href="hazard.html">Hazard Zones</a>
+        <a href="about.html">FAQs</a>
+        <a href="contact.html">Contact</a>
+        <a href="javascript:void(0);" style="font-size:20px;" class="icon" onclick="myFunction()">&#9776;</a>
+        </a>
     </div>
+    
+    <!-- Main Content -->
     <div id="up">
       <div id="left-map" class="left-map">          
-        <!-- Map -->
+        <!-- Map with all watershed areas -->
         <div id="map"></div>
       </div>
       <div id="right-map" class="right-map">
-          <!-- Gif -->
+          <!-- Gif box where simulations display when button is pressed, before shows instructions to display simulations -->
           <div id="gif-box"> <h2>Instructions to Display a Simulation:</h2><p>To display a simulation follow the steps:
             <br><br>&nbsp;&nbsp;&nbsp;&nbsp;1) Begin by clicking on any of the circle markers located within the watershed areas on the map.
             <br><br>&nbsp;&nbsp;&nbsp;&nbsp;2) Next, click the play button associated with the selected watershed.
@@ -10737,10 +10705,10 @@ document.addEventListener("fullscreenchange", function () {
           <a href="#" class="fullscreen-button" onclick="toggleFullScreen()"> 
             <img src="images/fullscreen.png" alt="Fullscreen Image" style="width: 50px; height: 50px;">
           </a>
-
       </div>
     </div>
 
+    <!-- Footer -->
     <div class="bottom">
       <img src="images\logo1.png" alt="logob" class="logo">
     </div>
@@ -10753,13 +10721,9 @@ document.addEventListener("fullscreenchange", function () {
         initMap();
       });
 
-    
-      //confirm('To display a simulation select a marker and press the flooding button.');
-
     </script>
 
     <script src="script.js"></script>
-    <!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBPMXj1GDdfRvVzbYCTcKSVBIujzERDJns&callback=initMap" async defer></script>-->
 
   </body>
 </html>

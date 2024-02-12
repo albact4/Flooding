@@ -92,9 +92,9 @@ p {
   
   #gif-box {
     background-color: #333; /* Background color */
-    padding: 10px; /* Padding around the content */
+    padding: 5px; /* Padding around the content */
     border-radius: 10px; /* Rounded corners */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Shadow effect */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Shadow effect */
     text-align: center; /* Center-align text */
     margin: 0 auto; /* Center horizontally */
 }

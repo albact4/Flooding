@@ -722,7 +722,7 @@ animation: scaleUp 0.3s ease-in-out;
   text-align: justify;
   text-justify: inter-word;
   line-height: 1.9em;
-
+  overflow: hidden;
 }
 
 .toggle-answer {
@@ -732,7 +732,7 @@ animation: scaleUp 0.3s ease-in-out;
   cursor: pointer;
 }
 
-#imagescontainer{
+.question-content{
   display: flex;
   flex-direction: row;
 
@@ -741,7 +741,7 @@ animation: scaleUp 0.3s ease-in-out;
   display: block; /* This removes any surrounding whitespace */
   margin: 0 auto; /* Center-align images horizontally */
   max-width: 100%;
-  width: 50vh;
+  width: 45vh;
   height: auto;
   margin-top: 10px;
 }
@@ -922,6 +922,12 @@ animation: scaleUp 0.3s ease-in-out;
     margin: 20px auto; /* Center the button horizontally with top and bottom margin */
     border: 2px solid #b6b6b6; /* Add a border with your desired color */
     border-radius: 5px; /* Optional: Add rounded corners to the button */
+  }
+
+  .question-content{
+    display: flex;
+    flex-direction: column ;
+  
   }
 }
 
